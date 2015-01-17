@@ -1,0 +1,15 @@
+{
+  "name": "HookieMonster",
+  "version": "0.0.1",
+  "description": "HookieMonster - Workshop para as universidades",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://lmarques12@bitbucket.org/opensoftgitrepo/hookiemonster-workshop.git"
+  },
+  "author": "Opensoft",
+  "license": "ISC"
+}
