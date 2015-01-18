@@ -1,0 +1,6 @@
+{
+  "http": {
+    "listen": "localhost",
+    "port": 3000
+  }
+}
