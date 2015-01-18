@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "twilio": "*",
+    "hapi": "*"
+  },
   "repository": {
     "type": "git",
     "url": "https://lmarques12@bitbucket.org/opensoftgitrepo/hookiemonster-workshop.git"
