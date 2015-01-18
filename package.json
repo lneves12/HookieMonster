@@ -8,6 +8,10 @@
     "type": "git",
     "url": "https://lmarques12@bitbucket.org/opensoftgitrepo/hookiemonster-workshop.git"
   },
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "bower install"
+  },
   "license": "ISC",
   "dependencies": {
     "getconfig": "^0.3.0",
