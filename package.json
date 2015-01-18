@@ -1,19 +1,24 @@
 {
-  "name": "HookieMonster",
+  "name": "hookieMonster",
+  "author": "Opensoft",
   "version": "0.0.1",
   "description": "HookieMonster - Workshop para as universidades",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "twilio": "*",
-    "hapi": "*"
-  },
   "repository": {
     "type": "git",
     "url": "https://lmarques12@bitbucket.org/opensoftgitrepo/hookiemonster-workshop.git"
   },
-  "author": "Opensoft",
-  "license": "ISC"
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "bower install"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "getconfig": "^0.3.0",
+    "handlebars": "^2.0.0",
+    "hapi": "^8.1.0",
+    "joi": "^5.1.0",
+    "require-directory": "^2.0.0",
+    "twilio": "^1.10.0"
+  }
 }
