@@ -2,5 +2,6 @@
   "http": {
     "listen": "localhost",
     "port": 3000
-  }
+  },
+  "ngrok": "46cb057f"
 }
