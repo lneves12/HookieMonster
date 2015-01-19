@@ -20,7 +20,7 @@ var register = function (plugin, options, next) {
     });
 
     plugin.route({
-      method: ['GET', 'POST'],
+      method: 'POST',
       path: '/twilio',
       handler: TwilioController.requestHandler,
     });

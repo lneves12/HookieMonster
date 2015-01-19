@@ -2,9 +2,10 @@
 module.exports = {
   Twilio: function (twilioReq) {
    return {'source' : 'twilio',
-    'from' : twilioReq.Called,
+    'from' : twilioReq.From,
     'to' : twilioReq.Called ,
-    'message' : twilioReq.CallStatus};
+    'message' : twilioReq.CallStatus,
+	'duration' : twilioReq.CallDuration};
   },
   Mail: function (gmailReq) {
    return {};

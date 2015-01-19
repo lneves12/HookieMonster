@@ -18,6 +18,12 @@ module.exports = {
         },
         id : 'js'
     },
+    sounds: {
+        handler: {
+            directory: { path: './public/sounds' }
+        },
+        id : 'sounds'
+    },
     bower: {
         handler: {
             directory: { path: './bower_components' }
