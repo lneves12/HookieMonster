@@ -35,5 +35,20 @@
 
     <!-- APP Directives -->
     <script src="js/directives.js"></script>
+
+    <!-- daqui para baixo é para mudar tudo e adaptar ao angular -->
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script>
+      var socket = io();
+
+      socket.on('activity', function(activity){
+        $('#activity').prepend($('<li>').text(activity));
+      });
+    </script>
+
+    <h1>Twilio</h1>
+    <ul id="activity"></ul>
+
     </body>
 </html>
