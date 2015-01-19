@@ -1,4 +1,5 @@
 var twilio = require('twilio');
+var config = require('getconfig');
 
 module.exports = function() {
 
@@ -13,7 +14,7 @@ module.exports = function() {
     var twimlResp = twilio.TwimlResponse();
 
     //url tem de ser configuração global :)
-    twimlResp.play("https://164991ea.ngrok.com/sounds/cookiemonster.mp3");
+    twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/cookiemonster.mp3');
     twimlResp.say('Welcome to HookieMonster Workshop!');
     twimlResp.say('Hookie...! Hookie...! Uga uga uga uga uga uuuga uga uga', {
       voice:'woman',

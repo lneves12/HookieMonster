@@ -2,6 +2,9 @@
 
 /* Controllers */
 
-appControllers.controller('HooksCtrl', ['$scope', '$filter','HooksFactory', function($scope, $filter, HooksFactory) {
-
+appControllers.controller('HooksCtrl', ['$scope', '$filter','HooksFactory', 'socketIO',
+  function($scope, $filter, HooksFactory, socketIO) {
+    socketIO.on('activity', function(activity){
+      $('#activity').prepend($('<li>').text(activity));
+    });
 }]);

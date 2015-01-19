@@ -4,6 +4,7 @@
 // Declare app level module which depends on filters, and services
 angular.module('hookieMonster', [
     'ngRoute',
+    'btford.socket-io',
     'hookieMonster.filters',
     'hookieMonster.services',
     'hookieMonster.directives',
@@ -16,4 +17,7 @@ config(['$routeProvider', function($routeProvider) {
     controller: 'HooksCtrl'
   });
 
-}]);
+}]).
+factory('socketIO', function(socketFactory){
+  return socketFactory();
+});
