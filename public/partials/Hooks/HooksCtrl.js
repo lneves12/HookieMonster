@@ -4,7 +4,10 @@
 
 appControllers.controller('HooksCtrl', ['$scope', '$filter','HooksFactory', 'socketIO',
   function($scope, $filter, HooksFactory, socketIO) {
+
+    $scope.activities = [];
+
     socketIO.on('activity', function(activity){
-      $('#activity').prepend($('<li>').text(activity));
+      $scope.activities.push(activity);
     });
 }]);
