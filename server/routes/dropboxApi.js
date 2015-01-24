@@ -1,19 +1,19 @@
 var Joi = require('joi');
-var TwilioController = require('../controllers/twilioController')();
+var DropboxController = require('../controllers/dropboxController')();
 
 var register = function (plugin, options, next) {
 
-    plugin.expose(TwilioController);
+    plugin.expose(DropboxController);
 
     //Declare a RESTful API
     plugin.route({
       method: 'GET',
-      path: '/twilio/{name}',
-      handler: TwilioController.helloWorld,
+      path: '/dropbox',
+      handler: DropboxController.challenge,
       config: {
         validate: {
-          params: {
-            name: Joi.string().min(3).max(10).required()
+          query: {
+            challenge: Joi.any().required()
           }
         }
       }
@@ -21,8 +21,8 @@ var register = function (plugin, options, next) {
 
     plugin.route({
       method: 'POST',
-      path: '/twilio',
-      handler: TwilioController.incomingCall,
+      path: '/dropbox',
+      handler: DropboxController.logStuff
     });
 
     next();
@@ -30,7 +30,7 @@ var register = function (plugin, options, next) {
 
 
 register.attributes = {
-	name : 'twilioApi',
+	name : 'dropboxApi',
 	version : '0.0.1'
 }
 
