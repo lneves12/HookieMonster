@@ -14,13 +14,11 @@
   },
   "license": "ISC",
   "dependencies": {
-    "dbox": "^0.6.3",
     "getconfig": "^0.3.0",
     "handlebars": "^2.0.0",
     "hapi": "^8.1.0",
     "hapio": "^1.1.0",
     "joi": "^5.1.0",
-    "request": "^2.51.0",
     "require-directory": "^2.0.0",
     "twilio": "^1.10.0"
   }

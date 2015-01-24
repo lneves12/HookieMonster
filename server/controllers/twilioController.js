@@ -35,7 +35,7 @@ module.exports = function() {
     // com apenas os sockets que este pedido tem de fazer broadcast
     var activity = JSON.stringify(activityMapper.Twilio(request.payload));
     console.log(activity);
-    request.server.plugins.hapio.io.emit('activity' , activity);
+    request.server.plugins.hapio.io.emit('twilio' , activity);
   }
 
   return TwilioController;

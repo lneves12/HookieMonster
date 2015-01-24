@@ -9,7 +9,22 @@
 	Welcome to the Hookie Family, {{hookieName}}!
 </pre>
 
-<h1>Twilio</h1>
-<ul id="activity" ng-repeat="activity in activities">
-	<li>{{activity}}</li>
+<h1 ng-if="twilios.length">Twilio</h1>
+<ul id="twilios" ng-repeat="twilio in twilios">
+	<li>{{twilio}}</li>
+</ul>
+
+<h1 ng-if="dropboxes.length">Dropbox</h1>
+<ul id="dropbox" ng-repeat="dropbox in dropboxes">
+	<li>{{dropbox}}</li>
+</ul>
+
+<h1 ng-if="gitHubs.length">GitHub</h1>
+<ul id="gitHub" ng-repeat="gitHub in gitHubs">
+	<li>{{gitHub}}</li>
+</ul>
+
+<h1 ng-if="trellos.length">GitHub</h1>
+<ul id="trello" ng-repeat="trello in trellos">
+	<li>{{gitHub}}</li>
 </ul>

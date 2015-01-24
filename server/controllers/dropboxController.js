@@ -1,6 +1,3 @@
-var dbox  = require("dbox");
-var request = require("request");
-
 module.exports = function() {
 
   var DropboxController = {};
@@ -12,18 +9,18 @@ module.exports = function() {
 
   DropboxController.logStuff = function(request, reply){
     console.log("POST RECEIVED:"  + JSON.stringify(request.payload));
-    var app   = dbox.app({ "app_key": "umdez34678ck01fx", "app_secret": "tjm89017sci88o6" });
-    var client = app.client("TD3ZR66rFmsAAAAAAAAAkaCsLeYLGhE400e0Lctx3OniaKlLh__i7Cp_thDjO3Aj");
+    //var app   = dbox.app({ "app_key": "umdez34678ck01fx", "app_secret": "tjm89017sci88o6" });
+    //var client = app.client("TD3ZR66rFmsAAAAAAAAAkaCsLeYLGhE400e0Lctx3OniaKlLh__i7Cp_thDjO3Aj");
 
 
 
-    request('https://api.dropbox.com/' + request.payload.delta.users[0] + '/delta', function (error, response, body) {
-    https://api.dropbox.com/1/delta
+    //request('https://api.dropbox.com/' + request.payload.delta.users[0] + '/delta', function (error, response, body) {
+    //https://api.dropbox.com/1/delta
 
 
-    client.delta(request.payload.delta.users[0], function(status, reply){
-      console.log(reply);
-    });
+    //client.delta(request.payload.delta.users[0], function(status, reply){
+    //  console.log(reply);
+    //});
   }
 
   return DropboxController;
