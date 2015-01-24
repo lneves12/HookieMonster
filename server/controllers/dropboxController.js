@@ -9,6 +9,7 @@ module.exports = function() {
 
   DropboxController.logStuff = function(request, reply){
     console.log("POST RECEIVED:"  + JSON.stringify(request.payload));
+    request.server.plugins.hapio.io.emit('dropbox' , request.payload);
     //var app   = dbox.app({ "app_key": "umdez34678ck01fx", "app_secret": "tjm89017sci88o6" });
     //var client = app.client("TD3ZR66rFmsAAAAAAAAAkaCsLeYLGhE400e0Lctx3OniaKlLh__i7Cp_thDjO3Aj");
 
