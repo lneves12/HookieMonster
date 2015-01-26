@@ -90,3 +90,15 @@ h3 {
 ::-webkit-scrollbar-corner {
   background-color: transparent;
 }
+
+.animation.ng-enter {
+  -webkit-transition:all linear 1s;
+  transition:all linear 1s;
+  opacity: 0;
+  max-height:0;
+}
+
+.animation.ng-enter-active {
+  opacity: 1;
+  max-height:200px;
+}

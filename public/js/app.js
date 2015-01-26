@@ -8,7 +8,8 @@ angular.module('hookieMonster', [
     'hookieMonster.filters',
     'hookieMonster.services',
     'hookieMonster.directives',
-    'hookieMonster.controllers'
+    'hookieMonster.controllers',
+    'ngAnimate'
 ]).
 config(['$routeProvider', function($routeProvider) {
 

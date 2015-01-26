@@ -10,35 +10,10 @@
 	<div class="row activity-main">
 		<div class="col-lg-4 activity-contact">
 				<div class="list-group" id="twilios">
-					<div class="row" ng-repeat="twilio in twilios track by $index">
+					<div ng-repeat="twilio in twilios" class="row animation">
 						<a href="" class="list-group-item {{twilio.source}}">
 							<img ng-src="http://ascii.jp/elem/000/000/805/805462/twilio-s_230x.gif" height="30px" width="30px"/>
 							<!-- usar filtros aqui-->
-							{{twilio.source}} | de: {{twilio.from}} - {{twilio.message}} | {{twilio.duration}}s
-						</a>
-					</div>
-					    <!-- isto tao aqui varios repetidos so para encher -->
-					<div class="row" ng-repeat="twilio in twilios track by $index">
-						<a href="" class="list-group-item {{twilio.source}}">
-							<img ng-src="http://ascii.jp/elem/000/000/805/805462/twilio-s_230x.gif" height="30px" width="30px"/>
-							{{twilio.source}} | de: {{twilio.from}} - {{twilio.message}} | {{twilio.duration}}s
-						</a>
-					</div>
-					<div class="row" ng-repeat="twilio in twilios track by $index">
-						<a href="" class="list-group-item {{twilio.source}}">
-							<img ng-src="http://ascii.jp/elem/000/000/805/805462/twilio-s_230x.gif" height="30px" width="30px"/>
-							{{twilio.source}} | de: {{twilio.from}} - {{twilio.message}} | {{twilio.duration}}s
-						</a>
-					</div>
-					<div class="row" ng-repeat="twilio in twilios track by $index">
-						<a href="" class="list-group-item {{twilio.source}}">
-							<img ng-src="http://ascii.jp/elem/000/000/805/805462/twilio-s_230x.gif" height="30px" width="30px"/>
-							{{twilio.source}} | de: {{twilio.from}} - {{twilio.message}} | {{twilio.duration}}s
-						</a>
-					</div>
-					<div class="row" ng-repeat="twilio in twilios track by $index">
-						<a href="" class="list-group-item {{twilio.source}}">
-							<img ng-src="http://ascii.jp/elem/000/000/805/805462/twilio-s_230x.gif" height="30px" width="30px"/>
 							{{twilio.source}} | de: {{twilio.from}} - {{twilio.message}} | {{twilio.duration}}s
 						</a>
 					</div>
@@ -56,6 +31,11 @@
 						Lisboa, 1234<br>
 						<abbr title="Phone">P:</abbr> (123) 123-4567
 					</address>
+
+					<h3> Detalhe HookieMonster!!</h3>
+					<br>
+					<p><strong>ouvir chamada</strong></p>
+
 				</div>
 			</div>
 		</div>
