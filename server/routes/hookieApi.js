@@ -30,6 +30,12 @@ var register = function (plugin, options, next) {
 
   plugin.route({
     method: 'GET',
+    path: '/imgs/{path*}',
+    config: controller.hookieAssets.imgs
+  });
+
+  plugin.route({
+    method: 'GET',
     path: '/bower_components/{path*}',
     config: controller.hookieAssets.bower
   });

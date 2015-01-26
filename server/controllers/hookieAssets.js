@@ -24,6 +24,12 @@ module.exports = {
         },
         id : 'sounds'
     },
+    imgs: {
+      handler: {
+        directory: { path: './public/imgs' }
+      },
+      id : 'imgs'
+    },
     bower: {
         handler: {
             directory: { path: './bower_components' }

@@ -11,7 +11,7 @@ appControllers.controller('HooksCtrl', ['$scope', '$filter','HooksFactory', 'soc
     $scope.trellos = [];
 
     socketIO.on('twilio', function(twilio){
-      $scope.twilios.unshift(twilio);
+      $scope.twilios.unshift(JSON.parse(twilio));
     });
 
     socketIO.on('dropbox', function(dropbox){
