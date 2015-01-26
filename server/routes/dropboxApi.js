@@ -18,6 +18,12 @@ var register = function (plugin, options, next) {
         }
       }
     });
+    
+    plugin.route({
+      method: 'GET',
+      path: '/dropboxTest',
+      handler: DropboxController.emitRandomStuff
+    });
 
     plugin.route({
       method: 'POST',

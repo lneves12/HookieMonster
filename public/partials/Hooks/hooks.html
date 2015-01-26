@@ -9,12 +9,12 @@
 
 	<div class="row activity-main">
 		<div class="col-lg-4 activity-contact">
-				<div class="list-group" id="twilios">
-					<div ng-repeat="twilio in twilios" class="row animation">
-						<a href="" class="list-group-item {{twilio.source}}">
-							<img ng-src="http://ascii.jp/elem/000/000/805/805462/twilio-s_230x.gif" height="30px" width="30px"/>
+				<div class="list-group" id="activities">
+					<div ng-repeat="activity in activities" class="row animation">
+						<a href="" class="list-group-item {{activity.source}}">
+							<img ng-src="/imgs/{{activity.source}}.jpg" height="30px" width="30px"/>
 							<!-- usar filtros aqui-->
-							{{twilio.source}} | de: {{twilio.from}} - {{twilio.message}} | {{twilio.duration}}s
+							{{activity.source}} | de: {{activity.from}} - {{activity.message}} | {{activity.duration}}s
 						</a>
 					</div>
 				</div>

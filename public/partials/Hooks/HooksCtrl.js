@@ -5,17 +5,17 @@
 appControllers.controller('HooksCtrl', ['$scope', '$filter','HooksFactory', 'socketIO',
   function($scope, $filter, HooksFactory, socketIO) {
 
-    $scope.twilios = [];
-    $scope.dropboxes = [];
+    $scope.activities = [];
+
     $scope.gitHubs = [];
     $scope.trellos = [];
 
     socketIO.on('twilio', function(twilio){
-      $scope.twilios.unshift(JSON.parse(twilio));
+      $scope.activities.unshift(JSON.parse(twilio));
     });
 
     socketIO.on('dropbox', function(dropbox){
-      $scope.dropboxes.unshift(dropbox);
+      $scope.activities.unshift(JSON.parse(dropbox));
     });
 
     socketIO.on('gitHub', function(gitHub){
