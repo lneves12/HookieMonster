@@ -27,7 +27,7 @@ module.exports = function() {
   DropboxController.emitRandomStuff = function(request, reply){
     reply("ok DropboxTEST").code(200).header('message', 'DropBox message');
 
-    var activity = '{"source" : "dropbox","from" : "Luís!" ,"message" : "Testes de Interface"}';
+    var activity = {"source" : "dropbox","from" : "Luís!" ,"message" : "Testes de Interface"};
     console.log(activity);
     request.server.plugins.hapio.io.emit('dropbox' , activity);
   }

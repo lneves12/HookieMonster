@@ -27,9 +27,24 @@ server.register(require('hapio'), function(err){
   if(err) throw err;
 });
 
+
+var nClients = 0;
+
 var io = server.plugins.hapio.io;
 io.on('connection', function(socket) {
     console.log('User connect');
+    ++nClients;
+    socket.on('user', function(user){
+      io.emit('user' , user);
+      io.emit('nUsers', nClients);
+      console.log(user);
+    });
+
+    socket.on('disconnect', function () {
+      --nClients;
+      socket.emit('disconnected', nClients);
+    });
+
 });
 
 

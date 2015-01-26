@@ -33,7 +33,7 @@ module.exports = function() {
     //Broadcast to all clientes! isto tem de ser tudo mudado martelada...
     //O ideal seria criar um especie de dependece injection que injecte este IO aqui
     // com apenas os sockets que este pedido tem de fazer broadcast
-    var activity = JSON.stringify(activityMapper.Twilio(request.payload));
+    var activity = activityMapper.Twilio(request.payload);
     console.log(activity);
     request.server.plugins.hapio.io.emit('twilio' , activity);
   }

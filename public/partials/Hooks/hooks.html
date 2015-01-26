@@ -7,11 +7,23 @@
 	</div>
 	<br>
 
-	<div class="row activity-main">
+	<ng-form ng-if="!uuid">
+		<div class="form-group">
+			<label for="nameInput">Your Name</label>
+			<input type="text" class="form-control" id="nameInput" placeholder="Enter your name" ng-model="name">
+		</div>
+		<button type="submit" class="btn btn-default" ng-click="submit(name)">Submit</button>
+	</ng-form>
+
+
+	<div class="row">Connected Users: {{nUsers}}</div>
+	<div ng-if="uuid" class="row activity-main">
 		<div class="col-lg-4 activity-contact">
 				<div class="list-group" id="activities">
 					<div ng-repeat="activity in activities" class="row animation">
-						<a href="" class="list-group-item {{activity.source}}">
+						<p ng-if="activity.uuid === uuid">Welcome {{activity.name}}!</p>
+						<p ng-if="activity.uuid !== uuid && activity.uuid">{{activity.name}} has connected!</p>
+						<a ng-if="!activity.uuid" href="" class="list-group-item {{activity.source}}">
 							<img ng-src="/imgs/{{activity.source}}.jpg" height="30px" width="30px"/>
 							<!-- usar filtros aqui-->
 							{{activity.source}} | de: {{activity.from}} - {{activity.message}} | {{activity.duration}}s
