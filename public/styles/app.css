@@ -3,13 +3,13 @@
 /* Fonts! */
 @font-face {
   font-family: "HookieFont";
-  src: url(/css/mrsmonster.ttf) format("truetype");
+  src: url(/styles/mrsmonster.ttf) format("truetype");
 }
 
 /* Custom container */
 body {
   color:#0E291E;
-  background: url(/imgs/cookie-background5.jpg) no-repeat center center fixed;
+  background: url(/images/cookie-background5.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

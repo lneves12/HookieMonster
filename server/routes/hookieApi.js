@@ -6,20 +6,14 @@ var register = function (plugin, options, next) {
   // ASSETS, JS, CSS, ETC.
   plugin.route({
       method: 'GET',
-      path: '/partials/{path*}',
-      config: controller.hookieAssets.partials
+      path: '/scripts/{path*}',
+      config: controller.hookieAssets.scripts
   });
 
   plugin.route({
     method: 'GET',
-    path: '/css/{path*}',
-    config: controller.hookieAssets.css
-  });
-
-  plugin.route({
-    method: 'GET',
-    path: '/js/{path*}',
-    config: controller.hookieAssets.js
+    path: '/styles/{path*}',
+    config: controller.hookieAssets.styles
   });
 
   plugin.route({
@@ -30,8 +24,14 @@ var register = function (plugin, options, next) {
 
   plugin.route({
     method: 'GET',
-    path: '/imgs/{path*}',
-    config: controller.hookieAssets.imgs
+    path: '/images/{path*}',
+    config: controller.hookieAssets.images
+  });
+
+  plugin.route({
+    method: 'GET',
+    path: '/views/{path*}',
+    config: controller.hookieAssets.views
   });
 
   plugin.route({

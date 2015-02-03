@@ -2,8 +2,9 @@
 
 /* Controllers */
 
-appControllers.controller('HooksCtrl', ['$scope', '$filter','HooksFactory', 'socketIO',
-  function($scope, $filter, HooksFactory, socketIO) {
+angular.module('hookieMonster')
+.controller('HooksCtrl', ['$scope', '$filter','socketIO',
+  function($scope, $filter, socketIO) {
 
     $scope.activities = [];
 

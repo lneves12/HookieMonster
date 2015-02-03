@@ -1,22 +1,22 @@
 // This is the assets controller. Goal is to serve css, js, partials, images, or bower packages.
 module.exports = {
-    partials: {
+    scripts: {
         handler: {
-            directory: { path: './public/partials' }
+            directory: { path: './public/scripts' }
         },
-        id : 'partials'
+        id : 'scripts'
     },
-    css: {
+    styles: {
         handler: {
-            directory: { path: './public/css' }
+            directory: { path: './public/styles' }
         },
-        id : 'css'
+        id : 'styles'
     },
-    js: {
-        handler: {
-            directory: { path: './public/js' }
-        },
-        id : 'js'
+    views: {
+      handler: {
+        directory: { path: './public/views' }
+      },
+      id : 'views'
     },
     sounds: {
         handler: {
@@ -24,11 +24,11 @@ module.exports = {
         },
         id : 'sounds'
     },
-    imgs: {
+    images: {
       handler: {
-        directory: { path: './public/imgs' }
+        directory: { path: './public/images' }
       },
-      id : 'imgs'
+      id : 'images'
     },
     bower: {
         handler: {

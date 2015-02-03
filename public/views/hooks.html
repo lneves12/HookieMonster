@@ -16,7 +16,7 @@
 	</ng-form>
 
 
-	<div class="row">Connected Users: {{nUsers}}</div>
+	<div ng-if="uuid" class="row">Connected Users: {{nUsers}}</div>
 	<div ng-if="uuid" class="row activity-main">
 		<div class="col-lg-4 activity-contact">
 				<div class="list-group" id="activities">
@@ -24,7 +24,7 @@
 						<p ng-if="activity.uuid === uuid">Welcome {{activity.name}}!</p>
 						<p ng-if="activity.uuid !== uuid && activity.uuid">{{activity.name}} has connected!</p>
 						<a ng-if="!activity.uuid" href="" class="list-group-item {{activity.source}}">
-							<img ng-src="/imgs/{{activity.source}}.jpg" height="30px" width="30px"/>
+							<img ng-src="/images/{{activity.source}}.jpg" height="30px" width="30px"/>
 							<!-- usar filtros aqui-->
 							{{activity.source}} | de: {{activity.from}} - {{activity.message}} | {{activity.duration}}s
 						</a>
@@ -34,7 +34,7 @@
 		<div class="col-lg-8 activity-detail">
 			<div class="row">
 				<div class="col-lg-4">
-				 <img class="detail-image" ng-src="/imgs/foto-grupo.jpg"/>
+				 <img class="detail-image" ng-src="/images/foto-grupo.jpg"/>
 				</div>
 				<div class="col-lg-8">
 					<address>

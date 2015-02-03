@@ -5,16 +5,12 @@
 angular.module('hookieMonster', [
     'ngRoute',
     'btford.socket-io',
-    'hookieMonster.filters',
-    'hookieMonster.services',
-    'hookieMonster.directives',
-    'hookieMonster.controllers',
     'ngAnimate'
 ]).
 config(['$routeProvider', function($routeProvider) {
 
   $routeProvider.when('/', {
-    templateUrl: 'partials/Hooks/hooks.html',
+    templateUrl: '../views/hooks.html',
     controller: 'HooksCtrl'
   });
 
