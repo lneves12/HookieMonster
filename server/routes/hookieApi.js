@@ -1,7 +1,10 @@
 var requireDirectory = require('require-directory');
 var controller = requireDirectory(module, '../controllers');
+var HookieController = require('../controllers/HookieController')();
 
 var register = function (plugin, options, next) {
+
+  plugin.expose(HookieController);
 
   // ASSETS, JS, CSS, ETC.
   plugin.route({
@@ -44,9 +47,7 @@ var register = function (plugin, options, next) {
   plugin.route({
     method: 'GET',
     path: '/',
-    handler: function (request, reply) {
-      reply.view('index');
-    }
+    handler: HookieController.initPageAndTwilio
   });
 }
 

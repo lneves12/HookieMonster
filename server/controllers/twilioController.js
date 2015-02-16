@@ -20,19 +20,29 @@ module.exports = function() {
 
     var twimlResp = twilio.TwimlResponse();
 
-    //url tem de ser configuração global :)
-    twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/cookiemonster.mp3');
+  /*  twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/cookiemonster.mp3');
     twimlResp.say('Welcome to HookieMonster Workshop!');
     twimlResp.say('Hookie...! Hookie...! Uga uga uga uga uga uuuga uga uga', {
       voice:'woman',
       language:'en-gb'
+    }); */
+    twimlResp.say('Welcome to HookieMonster Workshop!', {
+      voice:'woman',
+      language:'en-gb'
     });
 
-    reply(twimlResp.toString()).code(200).header('message', 'Twilio message');
+    twimlResp.dial({}, function(node) {
+      node.client('Luis');
+    });
 
-    //Broadcast to all clientes! isto tem de ser tudo mudado martelada...
-    //O ideal seria criar um especie de dependece injection que injecte este IO aqui
-    // com apenas os sockets que este pedido tem de fazer broadcast
+//    exemplo de chamada
+//    twimlResp.dial({callerId:'+351308804107'}, function(node) {
+//            node.number('+351918261154');
+//    });
+
+    reply(twimlResp.toString()).code(200).header('message', 'Twilio message');
+    console.log(twimlResp.toString());
+
     var activity = activityMapper.Twilio(request.payload);
     console.log(activity);
     request.server.plugins.hapio.io.emit('twilio' , activity);

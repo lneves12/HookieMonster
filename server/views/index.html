@@ -11,8 +11,6 @@
 
     <body ng-app="hookieMonster">
 
-		<ng-view></ng-view>
-
 		<!-- JQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -29,10 +27,27 @@
 
     <!-- APP Controllers -->
     <script src="scripts/controllers/HooksCtrl.js"></script>
+    <script src="scripts/controllers/TwilioCtrl.js"></script>
 
     <!-- Socket.IO -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="bower_components/angular-socket-io/socket.js"></script>
+
+    <!-- Twilio -->
+    <script src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+    <!-- retirar jquery dps de passar tudo para angular -->
+
+    <script type="text/javascript">
+
+    //é preciso arranjar maneira para gerar isto no client..
+    //poderá se enviar pelo socket.io quando a pessoa escolhe o utilizador
+    Twilio.Device.setup("{{token}}");
+
+  </script>
+
+</script>
+
+    <ng-view></ng-view>
 
     </body>
 </html>

@@ -5,7 +5,6 @@
 			<h1>HookieMonster  WorkShop	</h1>
 		</div>
 	</div>
-	<br>
 
 	<ng-form ng-if="!uuid">
 		<div class="form-group">
@@ -31,7 +30,8 @@
 					</div>
 				</div>
 		</div>
-		<div class="col-lg-8 activity-detail">
+
+		<div ng-controller="TwilioCtrl" class="col-lg-8 activity-detail">
 			<div class="row">
 				<div class="col-lg-4">
 				 <img class="detail-image" ng-src="/images/foto-grupo.jpg"/>
@@ -46,7 +46,15 @@
 
 					<h3> Detalhe HookieMonster!!</h3>
 					<br>
-					<p><strong>ouvir chamada</strong></p>
+					<button class="btn btn-success" ng-click="answer();">
+						Atender o Hookie!
+					</button>
+
+					<button class="btn btn-danger" ng-click="hangup();">
+						Desligar o Hookie!
+					</button>
+					<br>
+					<p><strong><div>{{log}}</div></strong></p>
 
 				</div>
 			</div>
