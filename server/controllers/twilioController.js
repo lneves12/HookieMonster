@@ -34,7 +34,6 @@ module.exports = function() {
     });
 
     twimlResp.dial({}, function(node) {
-      console.log(JSON.stringify(node, null, 2));
       hookieController.clients.forEach(function (element, index, array){
         node.client(element.id);
       });
