@@ -20,15 +20,9 @@ var register = function (plugin, options, next) {
     });
 
     plugin.route({
-      method: 'GET',
-      path: '/dropboxTest',
-      handler: DropboxController.emitRandomStuff
-    });
-
-    plugin.route({
       method: 'POST',
       path: '/dropbox',
-      handler: DropboxController.logStuff
+      handler: DropboxController.getChanges
     });
 
     next();
