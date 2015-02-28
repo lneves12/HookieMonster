@@ -5,7 +5,8 @@
 angular.module('hookieMonster', [
     'ngRoute',
     'btford.socket-io',
-    'ngAnimate'
+    'ngAnimate',
+    'relativeDate'
 ]).
 config(['$routeProvider', function($routeProvider) {
 

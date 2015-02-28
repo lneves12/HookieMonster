@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-.controller('ActivityCtrl', ['$scope', '$filter', 'socketIO',
-  function($scope, $filter, socketIO) {
+.controller('ActivityCtrl', ['$scope', 'socketIO',
+  function($scope, socketIO) {
 
 
     $scope.log = "HOOKIE MONSTER IS WAITING!";

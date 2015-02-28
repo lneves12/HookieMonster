@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-.controller('HooksCtrl', ['$scope', '$filter','socketIO',
-  function($scope, $filter, socketIO) {
+.controller('HooksCtrl', ['$scope', 'socketIO',
+  function($scope, socketIO) {
 
     $scope.activities = [];
 
@@ -13,11 +13,11 @@ angular.module('hookieMonster')
     });
 
     socketIO.on('userConnected', function(userName){
-      $scope.activities.unshift({userName:userName, me:false});
+      $scope.activities.unshift({userName:userName, me:false, date: new Date()});
     });
 
     socketIO.on('youConnected', function(userName){
-      $scope.activities.unshift({userName:userName, me:true});
+      $scope.activities.unshift({userName:userName, me:true, date: new Date()});
     });
 
     socketIO.on('nUsers', function(nUsers){
