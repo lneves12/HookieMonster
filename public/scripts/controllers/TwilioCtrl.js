@@ -3,8 +3,12 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-.controller('TwilioCtrl', ['$scope', '$filter',
-  function($scope, $filter) {
+.controller('TwilioCtrl', ['$scope', '$filter', 'socketIO',
+  function($scope, $filter, socketIO) {
+
+    socketIO.on('twilioToken', function(twilioToken){
+      Twilio.Device.setup(twilioToken);
+    });
 
     $scope.log = "HOOKIE MONSTER IS WAITING!";
 
@@ -38,5 +42,7 @@ angular.module('hookieMonster')
     $scope.hangup = function(){
       Twilio.Device.disconnectAll();
     }
+
+
 
 }]);

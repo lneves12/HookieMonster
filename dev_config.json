@@ -3,5 +3,7 @@
     "listen": "localhost",
     "port": 3000
   },
-  "ngrok": "2f252b3f"
+  "TwilioAccountSID": "AC219df832a75013281b0c9c9eee6a1f84",
+  "TwilioAuthToken": "4990a7a2274f529351288445f0f22f88",
+  "ngrok": "705167a3"
 }

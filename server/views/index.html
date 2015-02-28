@@ -35,19 +35,8 @@
 
     <!-- Twilio -->
     <script src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
-    <!-- retirar jquery dps de passar tudo para angular -->
-
-    <script type="text/javascript">
-
-    //é preciso arranjar maneira para gerar isto no client..
-    //poderá se enviar pelo socket.io quando a pessoa escolhe o utilizador
-    Twilio.Device.setup("{{token}}");
-
-  </script>
-
-</script>
-
+    
     <ng-view></ng-view>
 
-    </body>
+  </body>
 </html>
