@@ -12,15 +12,15 @@ angular.module('hookieMonster')
       $scope.activities.unshift(twilio);
     });
 
-    socketIO.on('user', function(user){
-      $scope.activities.unshift(user);
+    socketIO.on('userConnected', function(userName){
+      $scope.activities.unshift({userName:userName, me:false});
+    });
+
+    socketIO.on('youConnected', function(userName){
+      $scope.activities.unshift({userName:userName, me:true});
     });
 
     socketIO.on('nUsers', function(nUsers){
-      $scope.nUsers = nUsers;
-    });
-
-    socketIO.on('disconnected', function(nUsers){
       $scope.nUsers = nUsers;
     });
 
@@ -36,16 +36,12 @@ angular.module('hookieMonster')
       $scope.activities.unshift(trello);
     });
 
-    $scope.submit = function(userName){
-      $scope.uuid = generateUUID();
-      socketIO.emit('user', {name:userName, uuid: $scope.uuid});
-    }
+    socketIO.on('hipchat', function(hipchat){
+      $scope.activities.unshift(hipchat);
+    });
 
-    var generateUUID = function() {
-      function _p8(s) {
-        var p = (Math.random().toString(16)+"000000000").substr(2,8);
-        return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
-      }
-      return _p8() + _p8(true) + _p8(true) + _p8();
+    $scope.submit = function(userName){
+      $scope.userLoggedIn = true;
+      socketIO.emit('userConnected', userName);
     }
 }]);

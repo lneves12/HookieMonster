@@ -49,6 +49,8 @@ var register = function (plugin, options, next) {
     path: '/',
     handler: HookieController.initPageAndTwilio
   });
+
+  next();
 }
 
 register.attributes = {

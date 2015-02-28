@@ -6,23 +6,23 @@
 		</div>
 	</div>
 
-	<ng-form ng-if="!uuid">
+	<ng-form ng-if="!userLoggedIn">
 		<div class="form-group">
 			<label for="nameInput">Your Name</label>
-			<input type="text" class="form-control" id="nameInput" placeholder="Enter your name" ng-model="name">
+			<input type="text" class="form-control" id="nameInput" placeholder="Enter your name" ng-model="userName">
 		</div>
-		<button type="submit" class="btn btn-default" ng-click="submit(name)">Submit</button>
+		<button type="submit" class="btn btn-default" ng-click="submit(userName)">Submit</button>
 	</ng-form>
 
 
-	<div ng-if="uuid" class="row">Connected Users: {{nUsers}}</div>
-	<div ng-if="uuid" class="row activity-main">
+	<div ng-if="userLoggedIn" class="row">Connected Users: {{nUsers}}</div>
+	<div ng-if="userLoggedIn" class="row activity-main">
 		<div class="col-lg-4 activity-contact">
 				<div class="list-group" id="activities">
 					<div ng-repeat="activity in activities" class="row animation">
-						<p ng-if="activity.uuid === uuid">Welcome {{activity.name}}!</p>
-						<p ng-if="activity.uuid !== uuid && activity.uuid">{{activity.name}} has connected!</p>
-						<a ng-if="!activity.uuid" href="" class="list-group-item {{activity.source}}">
+						<p ng-if="activity.me === true">Welcome {{activity.userName}}!</p>
+						<p ng-if="activity.me === false">{{activity.userName}} has connected!</p>
+						<a ng-if="activity.source" href="" class="list-group-item {{activity.source}}">
 							<img ng-src="/images/{{activity.source}}.jpg" height="30px" width="30px"/>
 							<!-- usar filtros aqui-->
 							{{activity.source}} | de: {{activity.from}} - {{activity.message}} | {{activity.duration}}s

@@ -29,28 +29,34 @@ server.register(require('hapio'), function(err){
 });
 
 
-var nClients = 0;
+var clients = [];
 
 var io = server.plugins.hapio.io;
 io.on('connection', function(socket) {
     console.log('User connect');
-    ++nClients;
-    socket.on('user', function(user){
-      io.emit('user' , user);
-      io.emit('nUsers', nClients);
-      console.log(user);
+    clients.push(socket);
+
+    socket.on('userConnected', function(userName){
+      socket.emit('youConnected' , userName); //emit to the original sender
+      socket.broadcast.emit('userConnected', userName); //emit to all other senders
+      io.emit('nUsers', clients.length);
+      console.log(userName);
     });
 
     socket.on('disconnect', function () {
-      --nClients;
-      socket.emit('disconnected', nClients);
+      var index = clients.indexOf(socket);
+      if (index != -1) {
+          clients.splice(index, 1);
+          console.info('Client gone (id=' + socket.id + ').');
+      }
+      socket.emit('nUsers', clients.length);
     });
 
 });
 
 
 //Register the API
-server.register([dropboxApi, twilioApi, gitHubApi, trelloApi, hookieApi], function (err) {
+server.register([dropboxApi, twilioApi, gitHubApi, trelloApi, hipchatApi, hookieApi], function (err) {
   if(err) throw err;
 });
 
