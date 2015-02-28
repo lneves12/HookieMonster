@@ -17,5 +17,14 @@ module.exports = {
      'img' : 'hipchat.jpg',
      'detail' : {}
       };
+  },
+  Trello: function (trelloReq) {
+    return {'source' : 'trello',
+     'user' : {name : trelloReq.action.memberCreator.username},
+     'message' : trelloReq.action.type,
+     'date' : trelloReq.action.date,
+     'img' : 'trello.jpg',
+     'detail' : {}
+   };
   }
 };
