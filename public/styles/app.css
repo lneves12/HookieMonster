@@ -70,6 +70,10 @@ h3 {
   background-color: #C3D1E8;
 }
 
+.hipchat {
+  background-color: #80A89C;
+}
+
 ::-webkit-scrollbar {
   width: 14px;
   height: 18px;

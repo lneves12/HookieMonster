@@ -5,9 +5,16 @@ module.exports = {
     'from' : twilioReq.From,
     'to' : twilioReq.Called ,
     'message' : twilioReq.CallStatus,
-	'duration' : twilioReq.CallDuration};
+	   'duration' : twilioReq.CallDuration};
   },
   Mail: function (gmailReq) {
    return {};
+ },
+  Hipchat: function (hipchatReq) {
+    return {'source' : 'hipchat',
+     'from' : hipchatReq.item.message.from.name,
+     'to' : hipchatReq.Called ,
+     'message' : hipchatReq.item.message.message,
+ 	   'duration' : hipchatReq.item.message.date};
   }
 };
