@@ -3,5 +3,11 @@
     "listen": "localhost",
     "port": 3000
   },
-  "ngrok": "164991ea"
+  "trello" : {
+  	"idModel" : "54c3d739d2d1891f3cfec91b",
+  	"key" : "ec856c6d45e209283c4001d1f1f0f497",
+  	"secret" : "a9a0e15cdd6264144a5cd7d9c6125d2964434cf7f250ca9a5f8efd2a62105f86",
+  	"token" : "bdcf7061f5c5c512ad3d0933e22ca0210002334865ad1171d865c7577b1b601e"
+  },
+  "ngrok": "5a744096",
 }
