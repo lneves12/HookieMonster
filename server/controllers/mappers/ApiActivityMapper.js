@@ -2,19 +2,20 @@
 module.exports = {
   Twilio: function (twilioReq) {
    return {'source' : 'twilio',
-    'from' : twilioReq.From,
-    'to' : twilioReq.Called ,
+    'user' : {name : twilioReq.From},
     'message' : twilioReq.CallStatus,
-	   'duration' : twilioReq.CallDuration};
+	  'date' : twilioReq.CallDuration,
+    'img' : 'twilio.jpg',
+    'detail' : {}
+     };
   },
-  Mail: function (gmailReq) {
-   return {};
- },
   Hipchat: function (hipchatReq) {
     return {'source' : 'hipchat',
-     'from' : hipchatReq.item.message.from.name,
-     'to' : hipchatReq.Called ,
+     'user' : {name : hipchatReq.item.message.from.name},
      'message' : hipchatReq.item.message.message,
- 	   'duration' : hipchatReq.item.message.date};
+     'date' : hipchatReq.item.message.date,
+     'img' : 'hipchat.jpg',
+     'detail' : {}
+      };
   }
 };
