@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="styles/app.css">
     </head>
 
-    <body ng-app="hookieMonster">
+    <body ng-app="hookieMonster" ng-view>
 
 		<!-- JQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -28,6 +28,7 @@
     <!-- APP Controllers -->
     <script src="scripts/controllers/HooksCtrl.js"></script>
     <script src="scripts/controllers/ActivityCtrl.js"></script>
+    <script src="scripts/controllers/DetailCtrl.js"></script>
 
     <!-- Socket.IO -->
     <script src="/socket.io/socket.io.js"></script>
@@ -35,8 +36,6 @@
 
     <!-- Twilio -->
     <script src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
-
-    <ng-view></ng-view>
 
   </body>
 </html>

@@ -24,8 +24,8 @@
 						<p ng-if="activity.me === false">{{activity.userName}} has connected!</p>
 						<a ng-if="activity.source" href="" class="list-group-item {{activity.source}}" ng-controller="ActivityCtrl">
 							<img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
-							<!-- usar filtros aqui-->
-							{{activity.source}} | de: {{activity.user.name}} - {{activity.message}} | {{activity.date}}
+							{{activity.source | uppercase }}  @{{activity.user.name}} {{activity.date}}
+							{{activity.message}}
 							<button ng-if="activity.source === 'twilio'" class="btn btn-success" ng-click="answer()"><span class='glyphicon glyphicon-earphone'/></button>
 							<button ng-if="activity.source === 'twilio'" class="btn btn-danger" ng-click="hangup()"><span class='glyphicon glyphicon-earphone'/></button>
 						</a>
@@ -33,7 +33,7 @@
 				</div>
 		</div>
 
-		<!-- <div ng-controller="TwilioCtrl" class="col-lg-8 activity-detail">
+		<div ng-controller="DetailCtrl" class="col-lg-8 activity-detail">
 			<div class="row">
 				<div class="col-lg-4">
 				 <img class="detail-image" ng-src="/images/foto-grupo.jpg"/>
@@ -46,22 +46,9 @@
 						<abbr title="Phone">P:</abbr> (123) 123-4567
 					</address>
 
-					<h3> Detalhe HookieMonster!!</h3>
-					<br>
-					<button class="btn btn-success" ng-click="answer();">
-						Atender o Hookie!
-					</button>
-
-					<button class="btn btn-danger" ng-click="hangup();">
-						Desligar o Hookie!
-					</button>
-					<br>
-					<p><strong><div>{{log}}</div></strong></p>
-
 				</div>
 			</div>
 		</div>
-		-->
 
 	</div>
 
