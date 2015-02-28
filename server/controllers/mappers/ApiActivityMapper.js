@@ -20,9 +20,11 @@ module.exports = {
   },
   Trello: function (trelloReq) {
     return {'source' : 'trello',
-     'from' : trelloReq.action.memberCreator.username,
-     'to' : trelloReq.model.name,
+     'user' : {name : trelloReq.action.memberCreator.username},
      'message' : trelloReq.action.type,
-     'duration' : trelloReq.action.date};
+     'date' : trelloReq.action.date,
+     'img' : 'trello.jpg',
+     'detail' : {}
+   };
   }
 };
