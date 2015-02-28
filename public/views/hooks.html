@@ -26,12 +26,8 @@
 							<img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
 							<!-- usar filtros aqui-->
 							{{activity.source}} | de: {{activity.user.name}} - {{activity.message}} | {{activity.date}}
-							<button class="btn btn-success" ng-click="answer()">
-								<span class='glyphicon glyphicon-earphone'/>
-							</button>
-							<button class="btn btn-danger" ng-click="hangup()">
-								<span class='glyphicon glyphicon-earphone'/>
-							</button>
+							<button ng-if="activity.source === 'twilio'" class="btn btn-success" ng-click="answer()"><span class='glyphicon glyphicon-earphone'/></button>
+							<button ng-if="activity.source === 'twilio'" class="btn btn-danger" ng-click="hangup()"><span class='glyphicon glyphicon-earphone'/></button>
 						</a>
 					</div>
 				</div>
