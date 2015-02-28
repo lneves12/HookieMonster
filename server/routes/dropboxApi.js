@@ -18,7 +18,7 @@ var register = function (plugin, options, next) {
         }
       }
     });
-    
+
     plugin.route({
       method: 'GET',
       path: '/dropboxTest',
