@@ -3,12 +3,9 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-.controller('TwilioCtrl', ['$scope', '$filter', 'socketIO',
+.controller('ActivityCtrl', ['$scope', '$filter', 'socketIO',
   function($scope, $filter, socketIO) {
 
-    socketIO.on('twilioToken', function(twilioToken){
-      Twilio.Device.setup(twilioToken);
-    });
 
     $scope.log = "HOOKIE MONSTER IS WAITING!";
 
@@ -34,7 +31,7 @@ angular.module('hookieMonster')
     });
 
     $scope.answer = function(){
-      if($scope.chamada!=undefined){
+      if($scope.chamada!==undefined){
         $scope.chamada.accept();
       }
     }
@@ -42,7 +39,5 @@ angular.module('hookieMonster')
     $scope.hangup = function(){
       Twilio.Device.disconnectAll();
     }
-
-
 
 }]);

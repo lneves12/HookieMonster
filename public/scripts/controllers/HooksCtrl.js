@@ -44,4 +44,8 @@ angular.module('hookieMonster')
       $scope.userLoggedIn = true;
       socketIO.emit('userConnected', userName);
     }
+    
+    socketIO.on('twilioToken', function(twilioToken){
+      Twilio.Device.setup(twilioToken);
+    });
 }]);

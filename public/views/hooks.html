@@ -22,16 +22,22 @@
 					<div ng-repeat="activity in activities" class="row animation">
 						<p ng-if="activity.me === true">Welcome {{activity.userName}}!</p>
 						<p ng-if="activity.me === false">{{activity.userName}} has connected!</p>
-						<a ng-if="activity.source" href="" class="list-group-item {{activity.source}}">
+						<a ng-if="activity.source" href="" class="list-group-item {{activity.source}}" ng-controller="ActivityCtrl">
 							<img ng-src="/images/{{activity.source}}.jpg" height="30px" width="30px"/>
 							<!-- usar filtros aqui-->
 							{{activity.source}} | de: {{activity.from}} - {{activity.message}} | {{activity.duration}}s
+							<button class="btn btn-success" ng-click="answer()">
+								<span class='glyphicon glyphicon-earphone'/>
+							</button>
+							<button class="btn btn-danger" ng-click="hangup()">
+								<span class='glyphicon glyphicon-earphone'/>
+							</button>
 						</a>
 					</div>
 				</div>
 		</div>
 
-		<div ng-controller="TwilioCtrl" class="col-lg-8 activity-detail">
+		<!-- <div ng-controller="TwilioCtrl" class="col-lg-8 activity-detail">
 			<div class="row">
 				<div class="col-lg-4">
 				 <img class="detail-image" ng-src="/images/foto-grupo.jpg"/>
@@ -59,6 +65,7 @@
 				</div>
 			</div>
 		</div>
+		-->
 
 	</div>
 
