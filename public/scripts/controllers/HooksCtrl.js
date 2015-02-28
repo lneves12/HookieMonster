@@ -36,7 +36,9 @@ angular.module('hookieMonster')
       $scope.activities.unshift(trello);
     });
 
-
+    socketIO.on('hipchat', function(hipchat){
+      $scope.activities.unshift(hipchat);
+    });
 
     $scope.submit = function(userName){
       $scope.userLoggedIn = true;
