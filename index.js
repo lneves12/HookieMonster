@@ -7,6 +7,7 @@ var gitHubApi = require('./server/routes/gitHubApi');
 var hookieApi = require('./server/routes/hookieApi');
 var dropboxApi = require('./server/routes/dropboxApi');
 var trelloApi = require('./server/routes/trelloApi');
+var hipchatApi = require('./server/routes/hipchatApi');
 
 
 // Create a server with a host and port

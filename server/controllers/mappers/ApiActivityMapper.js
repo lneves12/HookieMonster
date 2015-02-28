@@ -7,14 +7,18 @@ module.exports = {
     'message' : twilioReq.CallStatus,
 	   'duration' : twilioReq.CallDuration};
   },
-  Mail: function (gmailReq) {
-   return {};
- },
   Hipchat: function (hipchatReq) {
     return {'source' : 'hipchat',
      'from' : hipchatReq.item.message.from.name,
      'to' : hipchatReq.Called ,
      'message' : hipchatReq.item.message.message,
  	   'duration' : hipchatReq.item.message.date};
+  },
+  Trello: function (trelloReq) {
+    return {'source' : 'trello',
+     'from' : trelloReq.action.memberCreator.username,
+     'to' : trelloReq.model.name,
+     'message' : trelloReq.action.type,
+     'duration' : trelloReq.action.date};
   }
 };

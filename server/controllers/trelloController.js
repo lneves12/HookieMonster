@@ -1,4 +1,5 @@
 var config = require('getconfig');
+var activityMapper = require('../controllers/mappers/ApiActivityMapper');
 
 module.exports = function() {
 
@@ -14,18 +15,23 @@ module.exports = function() {
       form: {description:'My first webhook', 
              callbackURL: "http://" + config.ngrok + ".ngrok.com/trelloCallback", 
              idModel: config.trello.idModel}}, function (error, response, body) {
-        /*console.log("ERRO" + error);
-        console.log("RES" + JSON.stringify(response));
-        console.log("BODY" + body);*/
       if (!error && response.statusCode == 200) {
         console.log(body)
+      } else {
+        console.log("ERRO" + error);
+        console.log("RES" + JSON.stringify(response));
+        console.log("BODY" + body);
       }
     })
   }
 
   TrelloController.inspectCallback = function(request, reply){
     console.log("changes");
-    console.log(JSON.stringify(request.payload));
+    console.log(JSON.stringify(request.payload, null, 2));
+
+    var activity = activityMapper.Trello(request.payload);
+    console.log(activity);
+    request.server.plugins.hapio.io.emit('trello' , activity);
 
     reply("ok!");
   }
