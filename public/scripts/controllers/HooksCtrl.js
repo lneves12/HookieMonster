@@ -36,6 +36,8 @@ angular.module('hookieMonster')
       $scope.activities.unshift(trello);
     });
 
+
+
     $scope.submit = function(userName){
       $scope.userLoggedIn = true;
       socketIO.emit('userConnected', userName);

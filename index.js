@@ -1,11 +1,14 @@
 var Hapi = require('hapi');
 var config = require('getconfig');
+var twilio = require('twilio');
 
 
 var twilioApi = require('./server/routes/twilioApi');
 var gitHubApi = require('./server/routes/gitHubApi');
 var hookieApi = require('./server/routes/hookieApi');
 var dropboxApi = require('./server/routes/dropboxApi');
+
+var hookieController = require('./server/controllers/hookieController');
 
 
 // Create a server with a host and port
@@ -27,28 +30,26 @@ server.register(require('hapio'), function(err){
   if(err) throw err;
 });
 
-
-var clients = [];
-
 var io = server.plugins.hapio.io;
 io.on('connection', function(socket) {
     console.log('User connect');
-    clients.push(socket);
 
     socket.on('userConnected', function(userName){
+      hookieController.addClient(socket);
       socket.emit('youConnected' , userName); //emit to the original sender
       socket.broadcast.emit('userConnected', userName); //emit to all other senders
-      io.emit('nUsers', clients.length);
-      console.log(userName);
+      io.emit('nUsers', hookieController.clients.length);
+
+      var capability = new twilio.Capability(config.TwilioAccountSID, config.TwilioAuthToken);
+      capability.allowClientIncoming(socket.id);
+      server.plugins.hapio.io.emit('twilioToken', capability.generate());
+
+      console.log(userName + ' has connected');
     });
 
     socket.on('disconnect', function () {
-      var index = clients.indexOf(socket);
-      if (index != -1) {
-          clients.splice(index, 1);
-          console.info('Client gone (id=' + socket.id + ').');
-      }
-      socket.emit('nUsers', clients.length);
+      hookieController.removeClient(socket);
+      socket.emit('nUsers', hookieController.clients.length);
     });
 
 });

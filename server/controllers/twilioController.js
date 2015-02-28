@@ -3,6 +3,8 @@ var config = require('getconfig');
 var twilio = require('twilio');
 var TwilioModel = require('../models/twilio')();
 var activityMapper = require('../controllers/mappers/ApiActivityMapper');
+var hookieController = require('../controllers/hookieController');
+
 
 module.exports = function() {
 
@@ -32,7 +34,10 @@ module.exports = function() {
     });
 
     twimlResp.dial({}, function(node) {
-      node.client('Luis');
+      console.log(JSON.stringify(node, null, 2));
+      hookieController.clients.forEach(function (element, index, array){
+        node.client(element.id);
+      });
     });
 
 //    exemplo de chamada
