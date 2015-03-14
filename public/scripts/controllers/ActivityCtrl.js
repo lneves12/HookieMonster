@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-.controller('ActivityCtrl', ['$scope', 'socketIO',
-  function($scope, socketIO) {
+.controller('ActivityCtrl', ['$scope', 'socketIO', 'ngDialog', '$rootScope',
+  function($scope, socketIO, ngDialog, $rootScope) {
 
 
     $scope.log = "HOOKIE MONSTER IS WAITING!";
@@ -38,6 +38,15 @@ angular.module('hookieMonster')
 
     $scope.hangup = function(){
       Twilio.Device.disconnectAll();
+    }
+
+    $scope.open = function(activity){
+      ngDialog.open({
+        template: '../views/activity-' + activity.source + '.html',
+        controller: 'DetailCtrl',
+        className: 'ngdialog-theme-default ngdialog-theme-custom',
+        data: activity
+      });
     }
 
 }]);

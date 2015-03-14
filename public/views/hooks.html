@@ -31,7 +31,8 @@
 							@{{activity.userName}} has connected! {{activity.date | relativeDate }}
 						</a>
 
-						<a ng-if="activity.source" href="" class="list-group-item {{activity.source}}" ng-controller="ActivityCtrl">
+						<a ng-if="activity.source" href="" class="list-group-item {{activity.source}}" ng-controller="ActivityCtrl"
+							ng-click="open(activity)">
 							<img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
 							{{activity.source | uppercase }}  @{{activity.user.name}} {{activity.date | relativeDate }}
 							<p>{{activity.message}}</p>
@@ -41,24 +42,6 @@
 					</div>
 				</div>
 		</div>
-
-		<div ng-controller="DetailCtrl" class="col-lg-8 activity-detail">
-			<div class="row">
-				<div class="col-lg-4">
-				 <img class="detail-image" ng-src="/images/foto-grupo.jpg"/>
-				</div>
-				<div class="col-lg-8">
-					<address>
-						<strong>Opensoft</strong><br>
-						795 Folsom Ave, Suite 600<br>
-						Lisboa, 1234<br>
-						<abbr title="Phone">P:</abbr> (123) 123-4567
-					</address>
-
-				</div>
-			</div>
-		</div>
-
 	</div>
 
 	<div class="row text-center">

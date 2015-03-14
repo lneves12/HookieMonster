@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-.controller('DetailCtrl', ['$scope'
+.controller('DetailCtrl', ['$scope',
   function($scope) {
-
+    $scope.val = $scope.ngDialogData || "No Value...";
 }]);
