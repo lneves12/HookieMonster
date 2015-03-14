@@ -70,8 +70,9 @@ h3 {
   background-color: #C3D1E8;
 }
 
-.trello {
+.trello{
   background-color: #0E74AF;
+  color: white !important;
 }
 
 ::-webkit-scrollbar {
@@ -105,4 +106,12 @@ h3 {
 .animation.ng-enter-active {
   opacity: 1;
   max-height:200px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
 }

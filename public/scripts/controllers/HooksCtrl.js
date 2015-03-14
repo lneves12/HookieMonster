@@ -5,12 +5,17 @@
 angular.module('hookieMonster')
 .controller('HooksCtrl', ['$scope', 'socketIO',
   function($scope, socketIO) {
+    $scope.supportedHooks = ['twilio', 'dropbox', 'trello', 'hipchat'];
 
     $scope.activities = [];
     $scope.user = {};
+    $scope.selectedHooks = {};
 
-    socketIO.on('twilio', function(twilio){
-      $scope.activities.unshift(twilio);
+    $scope.supportedHooks.forEach(function(e) {
+      socketIO.on(e, function(hook){
+        $scope.activities.unshift(hook);
+      });
+      $scope.selectedHooks[e] = true;
     });
 
     socketIO.on('userConnected', function(userName){
@@ -25,24 +30,16 @@ angular.module('hookieMonster')
       $scope.nUsers = nUsers;
     });
 
-    socketIO.on('dropbox', function(dropbox){
-      $scope.activities.unshift(dropbox);
-    });
-
-    socketIO.on('trello', function(trello){
-      $scope.activities.unshift(trello);
-    });
-
-    socketIO.on('hipchat', function(hipchat){
-      $scope.activities.unshift(hipchat);
-    });
-
     $scope.submit = function(user){
       $scope.userLoggedIn = true;
       var cryptMail = CryptoJS.MD5(user.mail || "default");
       $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?size=400&d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
       socketIO.emit('userConnected', user.name || "HookieMonster");
     }
+
+    $scope.filterHooks = function(value, index) {
+        return value.source === undefined || $scope.selectedHooks[value.source];
+    };
 
     socketIO.on('twilioToken', function(twilioToken){
       Twilio.Device.setup(twilioToken);
