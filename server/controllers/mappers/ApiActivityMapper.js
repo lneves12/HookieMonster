@@ -1,4 +1,6 @@
 // Objectivo: Mapear todos os dados vindos de sources diferentes para a mesma estrutura para ser mostrada da mesma forma
+var trelloMapper = require('./trelloMapper')();
+
 module.exports = {
   Twilio: function (twilioReq) {
    return {'source' : 'twilio',
@@ -18,13 +20,16 @@ module.exports = {
      'detail' : {}
       };
   },
+  Dropbox: function (dropboxReq) {
+    return {'source' : 'dropbox',
+     'user': {name: dropboxReq.user},
+     'message': dropboxReq.message,
+     'date': dropboxReq.date,
+     'img': 'dropbox.jpg',
+     'detail': {image: 'images/dropbox/' + dropboxReq.path }
+    };
+  },
   Trello: function (trelloReq) {
-    return {'source' : 'trello',
-     'user' : {name : trelloReq.action.memberCreator.username},
-     'message' : trelloReq.action.type,
-     'date' : trelloReq.action.date,
-     'img' : 'trello.jpg',
-     'detail' : {}
-   };
-  }
+    return trelloMapper.map(trelloReq);
+ }
 };

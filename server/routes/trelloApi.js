@@ -15,7 +15,7 @@ var register = function (plugin, options, next) {
     });
 
     plugin.route({
-      method: 'HEAD',
+      method: 'GET',
       path: '/trelloCallback',
       handler: function(request,reply) {
         reply().code(200);
