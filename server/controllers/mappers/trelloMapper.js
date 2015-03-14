@@ -12,7 +12,59 @@ module.exports =  function () {
    		}	
    };
    trelloMapper.detailFormat = function(message, action) {
-   		return {'message': 'detailMessage'}
+   		var detailMessage = '';
+   		var cardName = '-';
+   		var listName = '.';
+   		switch(message) {
+   			//update actions
+		    case 'updateCard':
+		        detailMessage = 'Card was updated!';
+		        if(action.data.listAfter && action.data.listBefore)
+		        	detailMessage = 'Card \"' + action.data.card.name + '\" was moved from \"' + action.data.listBefore.name + '\" to \"' + action.data.listAfter.name + '\"';
+		        if(action.data.old)
+		        	detailMessage = 'Due date \"' + action.data.card.due + '\" was added to card \"' + action.data.card.name + '\"';
+		        break;
+		    case 'updateList':
+		        detailMessage = 'List \"' + action.data.list + '\" was moved';
+		        break;
+
+		    //create actions
+		    case 'createCard':
+		        detailMessage = 'New card \"' + action.data.card.name + '\" created on list \"' + action.data.list + '\"';
+		        break;
+		    case 'createList':
+		        detailMessage = 'New list \"' + action.data.list + '\" created';
+		        break;
+
+		    //card actions
+		    case 'commentCard':
+		    	detailMessage = 'New comment \"' + action.data.text + '\" on card \"' + action.data.card.name + '\"';
+		    	break;
+
+		   	//delete actions
+		   	case 'deleteCard':
+		   		detailMessage = 'Card was deleted from list \"' + action.data.list + '\"';
+		   		break;
+
+		   	//members actions
+		   	case 'addMemberToCard':
+		   		detailMessage = 'New member \"' + action.member.username + '\" was added to card \"' + action.data.card.name + '\"';
+		   		break;
+		   	case 'removeMemberFromCard':
+		   		detailMessage = 'Member \"' + action.member.username + '\" was removed from Card \"' + action.data.card.name + '\"';
+		   		break;
+
+		   	//label actions
+		   	case 'addLabelToCard':
+		   		detailMessage = 'Label was added to Card \"' + action.data.card.name + '\"';
+		   		break;
+		   	case 'removeLabelFromCard':
+		   		detailMessage = 'Label was removed from Card \"' + action.data.card.name + '\"';
+		   		break;
+		    default:
+		        detailMessage = '42';
+		}
+		return {'message': detailMessage}
    }
 
 
@@ -55,6 +107,7 @@ module.exports =  function () {
 		   		return 'Label was added to Card \"' + cardName + '\"';
 		   	case 'removeLabelFromCard':
 		   		return 'Label was removed from Card \"' + cardName + '\"';
+
 		    default:
 		        return '\"I would love to change the world, but they won\'t give me the source code\"';
 		}
