@@ -8,7 +8,7 @@ module.exports = function() {
 
   TrelloController.registerCallback = function(){
     var requestParams = { url:"https://trello.com/1/tokens/" + config.trello.token + "/webhooks/?key=" + config.trello.key, 
-                          form: { description:'My first webhook', 
+                          form: { description:'My trello webhook', 
                                   callbackURL: "http://" + config.ngrok + ".ngrok.com/trelloCallback", 
                                   idModel: config.trello.idModel
                           }
@@ -19,6 +19,9 @@ module.exports = function() {
   }
 
   TrelloController.inspectCallback = function(request, reply){
+    console.log(JSON.stringify(request.payload, null, 2));
+
+
     request.server.plugins.hapio.io.emit('trello' , activityMapper.Trello(request.payload));
     reply();
   }
