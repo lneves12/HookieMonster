@@ -7,6 +7,7 @@ angular.module('hookieMonster')
   function($scope, socketIO) {
 
     $scope.activities = [];
+    $scope.user = {};
 
     socketIO.on('twilio', function(twilio){
       $scope.activities.unshift(twilio);
@@ -40,9 +41,11 @@ angular.module('hookieMonster')
       $scope.activities.unshift(hipchat);
     });
 
-    $scope.submit = function(userName){
+    $scope.submit = function(user){
       $scope.userLoggedIn = true;
-      socketIO.emit('userConnected', userName);
+      var cryptMail = CryptoJS.MD5(user.mail || "default");
+      $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
+      socketIO.emit('userConnected', user.name || "HookieMonster");
     }
 
     socketIO.on('twilioToken', function(twilioToken){
