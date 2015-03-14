@@ -44,7 +44,7 @@ angular.module('hookieMonster')
     $scope.submit = function(user){
       $scope.userLoggedIn = true;
       var cryptMail = CryptoJS.MD5(user.mail || "default");
-      $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
+      $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?size=400&d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
       socketIO.emit('userConnected', user.name || "HookieMonster");
     }
 
