@@ -6,7 +6,7 @@ angular.module('hookieMonster', [
     'ngRoute',
     'btford.socket-io',
     'ngAnimate',
-    'relativeDate',
+    'angularMoment',
     'ngDialog'
 ]).
 config(['$routeProvider', function($routeProvider) {

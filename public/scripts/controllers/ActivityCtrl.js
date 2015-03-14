@@ -6,7 +6,6 @@ angular.module('hookieMonster')
 .controller('ActivityCtrl', ['$scope', 'socketIO', 'ngDialog', '$rootScope',
   function($scope, socketIO, ngDialog, $rootScope) {
 
-
     $scope.log = "HOOKIE MONSTER IS WAITING!";
 
     Twilio.Device.ready(function (device) {
