@@ -1,0 +1,16 @@
+{
+  "http": {
+    "listen": "localhost",
+    "port": 3000
+  },
+  "TwilioAccountSID": "",
+  "TwilioAuthToken": "",
+  "trello" : {
+  	"idModel" : "",
+  	"key" : "",
+  	"secret" : "",
+  	"token" : ""
+  },
+  "ngrok": "3254ade4",
+  "DropboxAuthToken": ""
+}
