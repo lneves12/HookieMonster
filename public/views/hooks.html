@@ -19,9 +19,15 @@
 
 	<div ng-if="userLoggedIn" class="row activity-main">
 		<div class="col-md-9 activity-contact">
+				<div class="row col-md-8">
+					<div ng-repeat="hook in supportedHooks" class="col-md-2">
+						<img ng-src="/images/{{hook}}.jpg" height="30px" width="30px"/>
+						<input type="checkbox" name="hooks" value="{{hook}}" ng-model="selectedHooks[hook]">
+					</div>
+				</div>
 				<div class="list-group" id="activities">
 					<div class="row">Connected Users: {{nUsers}}</div>
-					<div ng-repeat="activity in activities" class="row animation">
+					<div ng-repeat="activity in activities | filter:filterHooks" class="row animation">
 						<activity></activity>
 					</div>
 				</div>

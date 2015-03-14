@@ -9,11 +9,13 @@ angular.module('hookieMonster')
 
     $scope.activities = [];
     $scope.user = {};
+    $scope.selectedHooks = {};
 
     $scope.supportedHooks.forEach(function(e) {
       socketIO.on(e, function(hook){
         $scope.activities.unshift(hook);
       });
+      $scope.selectedHooks[e] = true;
     });
 
     socketIO.on('userConnected', function(userName){
@@ -34,6 +36,10 @@ angular.module('hookieMonster')
       $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?size=400&d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
       socketIO.emit('userConnected', user.name || "HookieMonster");
     }
+
+    $scope.filterHooks = function(value, index) {
+        return value.source === undefined || $scope.selectedHooks[value.source];
+    };
 
     socketIO.on('twilioToken', function(twilioToken){
       Twilio.Device.setup(twilioToken);
