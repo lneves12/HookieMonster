@@ -5,12 +5,15 @@
 angular.module('hookieMonster')
 .controller('HooksCtrl', ['$scope', 'socketIO',
   function($scope, socketIO) {
+    $scope.supportedHooks = ['twilio', 'dropbox', 'trello', 'hipchat'];
 
     $scope.activities = [];
     $scope.user = {};
 
-    socketIO.on('twilio', function(twilio){
-      $scope.activities.unshift(twilio);
+    $scope.supportedHooks.forEach(function(e) {
+      socketIO.on(e, function(hook){
+        $scope.activities.unshift(hook);
+      });
     });
 
     socketIO.on('userConnected', function(userName){
@@ -23,18 +26,6 @@ angular.module('hookieMonster')
 
     socketIO.on('nUsers', function(nUsers){
       $scope.nUsers = nUsers;
-    });
-
-    socketIO.on('dropbox', function(dropbox){
-      $scope.activities.unshift(dropbox);
-    });
-
-    socketIO.on('trello', function(trello){
-      $scope.activities.unshift(trello);
-    });
-
-    socketIO.on('hipchat', function(hipchat){
-      $scope.activities.unshift(hipchat);
     });
 
     $scope.submit = function(user){
