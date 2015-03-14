@@ -26,7 +26,7 @@ module.exports = {
      'img': 'dropbox.jpg',
      'detail': {image: 'images/dropbox/' + dropboxReq.path }
     };
-  }
+  },
   Trello: function (trelloReq) {
     return {'source' : 'trello',
      'user' : {name : trelloReq.action.memberCreator.username},

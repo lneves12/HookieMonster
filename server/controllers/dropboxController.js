@@ -14,7 +14,7 @@ module.exports = function() {
   var DropboxController = {};
 
   DropboxController.challenge = function(req, reply){
-    reply(request.query.challenge);
+    reply(req.query.challenge);
     console.log("Challenge Accepted:"  + req.query.challenge);
   }
 
