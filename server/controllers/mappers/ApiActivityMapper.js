@@ -18,6 +18,15 @@ module.exports = {
      'detail' : {}
       };
   },
+  Dropbox: function (dropboxReq) {
+    return {'source' : 'dropbox',
+     'user': {name: dropboxReq.user},
+     'message': dropboxReq.message,
+     'date': dropboxReq.date,
+     'img': 'dropbox.jpg',
+     'detail': {image: 'images/dropbox/' + dropboxReq.path }
+    };
+  },
   Trello: function (trelloReq) {
     return {'source' : 'trello',
      'user' : {name : trelloReq.action.memberCreator.username},
@@ -26,5 +35,5 @@ module.exports = {
      'img' : 'trello.jpg',
      'detail' : {}
    };
-  }
+ }
 };
