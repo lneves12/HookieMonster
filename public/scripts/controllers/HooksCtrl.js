@@ -48,4 +48,10 @@ angular.module('hookieMonster')
     socketIO.on('twilioToken', function(twilioToken){
       Twilio.Device.setup(twilioToken);
     });
-}]);
+}]).
+directive('activity', function() {
+  return {
+    restrict: 'E',
+    templateUrl: '../views/activity.html'
+  }
+});

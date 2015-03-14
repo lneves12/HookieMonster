@@ -14,31 +14,12 @@
 		<button type="submit" class="btn btn-default" ng-click="submit(userName)">Submit</button>
 	</ng-form>
 
-
-	<div ng-if="userLoggedIn" class="row">Connected Users: {{nUsers}}</div>
 	<div ng-if="userLoggedIn" class="row activity-main">
 		<div class="col-lg-4 activity-contact">
 				<div class="list-group" id="activities">
+					<div class="row">Connected Users: {{nUsers}}</div>
 					<div ng-repeat="activity in activities" class="row animation">
-
-						<a ng-if="activity.me === true" class="list-group-item">
-							<img ng-src="/images/hookiemonster.png" height="30px" width="30px"/>
-							Welcome @{{activity.userName}} {{activity.date | relativeDate }}
-						</a>
-
-						<a ng-if="activity.me === false" class="list-group-item">
-							<img ng-src="/images/hookiemonster.png" height="30px" width="30px"/>
-							@{{activity.userName}} has connected! {{activity.date | relativeDate }}
-						</a>
-
-						<a ng-if="activity.source" href="" class="list-group-item {{activity.source}}" ng-controller="ActivityCtrl"
-							ng-click="open(activity)">
-							<img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
-							{{activity.source | uppercase }}  @{{activity.user.name}} {{activity.date | relativeDate }}
-							<p>{{activity.message}}</p>
-							<button ng-if="activity.source === 'twilio'" class="btn btn-success" ng-click="answer()"><span class='glyphicon glyphicon-earphone'/></button>
-							<button ng-if="activity.source === 'twilio'" class="btn btn-danger" ng-click="hangup()"><span class='glyphicon glyphicon-earphone'/></button>
-						</a>
+						<activity></activity>
 					</div>
 				</div>
 		</div>
