@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="row top">
-		<div class="col-lg-12 text-center r-top">
+		<div class="col-md-12 text-center r-top">
 		    <h1>HookieMonster  WorkShop    </h1>
 		</div>
 	</div>
@@ -9,13 +9,16 @@
 	<ng-form ng-if="!userLoggedIn">
 		<div class="form-group">
 			<label for="nameInput">Your Name</label>
-			<input type="text" class="form-control" id="nameInput" placeholder="Enter your name" ng-model="userName">
+			<input type="text" class="form-control" id="nameInput" placeholder="Enter your name" ng-model="user.name">
+			<br>
+			<label for="mailInput">Your Email</label>
+			<input type="text" class="form-control" id="mailInpute" placeholder="Enter your Gravatar Email" ng-model="user.mail">
 		</div>
-		<button type="submit" class="btn btn-default" ng-click="submit(userName)">Submit</button>
+		<button type="submit" class="btn btn-default" ng-click="submit(user)">Submit</button>
 	</ng-form>
 
 	<div ng-if="userLoggedIn" class="row activity-main">
-		<div class="col-lg-4 activity-contact">
+		<div class="col-md-9 activity-contact">
 				<div class="list-group" id="activities">
 					<div class="row">Connected Users: {{nUsers}}</div>
 					<div ng-repeat="activity in activities" class="row animation">
@@ -23,16 +26,32 @@
 					</div>
 				</div>
 		</div>
+
+	<div class="col-md-3 activity-detail">
+			<div class="row">
+				<div class="col-md-12">
+				 <img class="detail-image" ng-src="{{gravatarURL}}"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p><address>
+						<strong>LUIS</strong><br>
+						<abbr title="Phone">P:</abbr> (0351) 8918261154
+					</address></p>
+				</div>
+			</div>
 	</div>
+</div>
 
 	<div class="row text-center">
-		<div class="col-lg-12">
+		<div class="col-md-12">
 			<h3>HOOK all the events!</h3>
 		</div>
 	</div>
 	<div class="row text-center">
-		<div class="col-lg-12">
-			<a href="#"><i class="fa fa-facebook-official"></i></a> <a href="#"><i class="fa fa-google-plus-square"></i></a>  <a href="#"><i class="fa fa-twitter-square"></i></a> <a href="#"><i class="fa fa-github-square"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
+		<div class="col-md-12">
+			<a href="#"><i class="fa fa-facebook-official"></i></a> <a href="#"><i class="fa fa-google-plus-square"></i></a>  <a href="#"><i class="fa fa-twitter-square"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
 		</div>
 	</div>
 
