@@ -49,6 +49,18 @@ var register = function (plugin, options, next) {
     }
   });
 
+  //Register Angular route
+  plugin.route({
+    method: 'GET',
+    path: '/testEvents',
+    handler: function(request, reply){
+      reply().code(200);
+      request.server.plugins.hapio.io.emit('trello' , {"source":"trello","user":{"name":"tiagoaguiar3"},"message":"Card \"card\" was updated!","date":"2015-03-14T16:48:55.072Z","img":"trello.jpg","detail":{"message":"detailMessage"}});
+      request.server.plugins.hapio.io.emit('twilio' , {"source":"twilio","user":{"name":"tiagoaguiar3"},"message":"Card \"card\" was updated!","date":"2015-03-14T16:48:55.072Z","img":"twilio.jpg","detail":{"message":"detailMessage"}});
+
+    }
+  });
+
   next();
 }
 
