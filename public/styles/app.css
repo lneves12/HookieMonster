@@ -107,3 +107,11 @@ h3 {
   opacity: 1;
   max-height:200px;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
