@@ -1,7 +1,6 @@
 var DropboxController = function() {
 
 var request = require('request');
-var Dropbox = require('dropbox');
 var config = require('getconfig');
 var querystring = require('querystring');
 var fs = require('fs');
