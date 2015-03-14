@@ -70,8 +70,9 @@ h3 {
   background-color: #C3D1E8;
 }
 
-.trello {
+.trello{
   background-color: #0E74AF;
+  color: white !important;
 }
 
 ::-webkit-scrollbar {
