@@ -1,7 +1,6 @@
 var DropboxController = function() {
 
 var request = require('request');
-var https = require('https');
 var Dropbox = require('dropbox');
 var config = require('getconfig');
 var querystring = require('querystring');
@@ -60,50 +59,34 @@ function doDropboxChainRequest(req) {
         if(imageTypes.indexOf(metadata.mime_type) == -1) {
           return;
         }
-        var options = {
-          host: "api-content.dropbox.com",
-          headers: {
-            "Authorization": "Bearer " + config.DropboxAuthToken
-          }
-        };
+        var apiPath;
         if(metadata.thumb_exists) {
-          options.path = "/1/thumbnails/auto/" + encodeURIComponent(path) + "?size=xl";
+          apiPath = "/1/thumbnails/auto/" + encodeURIComponent(path) + "?size=xl";
         }
         else {
-          options.path = "/1/files/auto/" + encodeURIComponent(path);
+          apiPath = "/1/files/auto/" + encodeURIComponent(path);
         }
-        https.get(options, function(res) {
-          if(res.statusCode != 200) {
-            console.error("Couldn't get thumbnail/file " + res.statusCode);
-            return;
+        var options = {
+          url: "https://api-content.dropbox.com" + apiPath,
+          headers: {
+            'Authorization': 'Bearer ' + config.DropboxAuthToken
           }
-          var imagedata = '';
-          res.setEncoding('binary');
+        };
 
-          res.on('data', function(chunk){
-              imagedata += chunk;
-          })
-
-          res.on('end', function(){
-              fs.writeFile('public/images/dropbox/' + path, imagedata, 'binary', function(err){
-                  if (err) throw err;
-                  console.log('File saved.');
-              });
-              var dropboxObject = {
-                message: 'Changed picture',
-                date: metadata.modified,
-                path: path
-              };
-              if(metadata.modifier == null) {
-                dropboxObject.user = "Owner";
-              }
-              else {
-                dropboxObject.user = metadata.modifier.display_name;
-              }
-              var activity = activityMapper.Dropbox(dropboxObject);
-              req.server.plugins.hapio.io.emit('dropbox', activity);
-          });
-        });
+        request(options).pipe(fs.createWriteStream('public/images/dropbox/' + path.replace(/[\/\\]/g, '_')));
+        var dropboxObject = {
+          message: 'Changed picture',
+          date: metadata.modified,
+          path: path
+        };
+        if(metadata.modifier == null) {
+          dropboxObject.user = "Owner";
+        }
+        else {
+          dropboxObject.user = metadata.modifier.display_name;
+        }
+        var activity = activityMapper.Dropbox(dropboxObject);
+        req.server.plugins.hapio.io.emit('dropbox', activity);
       });
     }
 
