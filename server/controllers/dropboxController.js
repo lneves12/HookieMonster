@@ -72,11 +72,13 @@ function doDropboxChainRequest(req) {
           }
         };
 
-        request(options).pipe(fs.createWriteStream('public/images/dropbox/' + path.replace(/[\/\\]/g, '_')));
+        var flatPath = path.replace(/[\/\\]/g, '_');
+        request(options).pipe(fs.createWriteStream('public/images/dropbox/' + flatPath));
         var dropboxObject = {
           message: 'Changed picture',
           date: metadata.modified,
-          path: path
+          path: path,
+          flatPath: flatPath
         };
         if(metadata.modifier == null) {
           dropboxObject.user = "Owner";

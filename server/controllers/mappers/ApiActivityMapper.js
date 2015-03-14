@@ -26,7 +26,10 @@ module.exports = {
      'message': dropboxReq.message,
      'date': dropboxReq.date,
      'img': 'dropbox.jpg',
-     'detail': {image: 'images/dropbox/' + dropboxReq.path }
+     'detail': {
+        'image': 'images/dropbox/' + dropboxReq.flatPath,
+        'imagePath': dropboxReq.path
+      }
     };
   },
   Trello: function (trelloReq) {
