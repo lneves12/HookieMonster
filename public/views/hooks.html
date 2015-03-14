@@ -22,7 +22,7 @@
 	<div ng-if="userLoggedIn" class="row activity-main">
 		<div class="col-md-9 activity-contact">
 				<div class="list-group" id="activities">
-					<div ng-repeat="activity in activities" class="row animation">
+					<div ng-repeat="activity in activities | " class="row animation">
 
 						<a ng-if="activity.me === true" class="list-group-item">
 							<img ng-src="/images/hookiemonster.png" height="30px" width="30px"/>
@@ -69,7 +69,7 @@
 	</div>
 	<div class="row text-center">
 		<div class="col-md-12">
-			<a href="#"><i class="fa fa-facebook-official"></i></a> <a href="#"><i class="fa fa-google-plus-square"></i></a>  <a href="#"><i class="fa fa-twitter-square"></i></a> <a href="#"><i class="fa fa-github-square"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
+			<a href="#"><i class="fa fa-facebook-official"></i></a> <a href="#"><i class="fa fa-google-plus-square"></i></a>  <a href="#"><i class="fa fa-twitter-square"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
 		</div>
 	</div>
 
