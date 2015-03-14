@@ -43,7 +43,7 @@ angular.module('hookieMonster')
       ngDialog.open({
         templateUrl: '../views/activityDetail-' + activity.source + '.html',
         controller: 'DetailCtrl',
-        className: 'ngdialog ngdialog-theme-default',
+        className: 'ngdialog ngdialog-theme-default dialog-' + activity.source,
         data: activity
       });
     }
