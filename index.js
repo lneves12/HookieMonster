@@ -4,7 +4,6 @@ var twilio = require('twilio');
 
 
 var twilioApi = require('./server/routes/twilioApi');
-var gitHubApi = require('./server/routes/gitHubApi');
 var hookieApi = require('./server/routes/hookieApi');
 var dropboxApi = require('./server/routes/dropboxApi');
 var trelloApi = require('./server/routes/trelloApi');
@@ -58,7 +57,7 @@ io.on('connection', function(socket) {
 
 
 //Register the API
-server.register([dropboxApi, twilioApi, gitHubApi, trelloApi, hipchatApi, hookieApi], function (err) {
+server.register([dropboxApi, twilioApi, trelloApi, hipchatApi, hookieApi], function (err) {
   if(err) throw err;
 });
 

@@ -42,7 +42,7 @@ angular.module('hookieMonster')
 
     $scope.open = function(activity){
       ngDialog.open({
-        template: '../views/activity-' + activity.source + '.html',
+        templateUrl: '../views/activityDetail-' + activity.source + '.html',
         controller: 'DetailCtrl',
         className: 'ngdialog ngdialog-theme-default',
         data: activity

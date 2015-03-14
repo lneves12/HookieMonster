@@ -29,10 +29,6 @@ angular.module('hookieMonster')
       $scope.activities.unshift(dropbox);
     });
 
-    socketIO.on('gitHub', function(gitHub){
-      $scope.activities.unshift(gitHub);
-    });
-
     socketIO.on('trello', function(trello){
       $scope.activities.unshift(trello);
     });
@@ -51,4 +47,10 @@ angular.module('hookieMonster')
     socketIO.on('twilioToken', function(twilioToken){
       Twilio.Device.setup(twilioToken);
     });
-}]);
+}]).
+directive('activity', function() {
+  return {
+    restrict: 'E',
+    templateUrl: '../views/activity.html'
+  }
+});
