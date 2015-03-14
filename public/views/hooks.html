@@ -22,8 +22,10 @@
 		<div class="col-md-9 activity-contact">
 				<div class="row col-md-8">
 					<div ng-repeat="hook in supportedHooks" class="col-md-2">
-						<img ng-src="/images/{{hook}}.jpg" height="30px" width="30px"/>
-						<input type="checkbox" name="hooks" value="{{hook}}" ng-model="selectedHooks[hook]">
+						<label for="{{hook}}">
+							<img ng-src="/images/{{hook}}.jpg" height="30px" width="30px"/>
+							<input id="{{hook}}" type="checkbox" name="hooks" value="{{hook}}" ng-model="selectedHooks[hook]">
+						</label>
 					</div>
 				</div>
 				<div class="list-group" id="activities">
