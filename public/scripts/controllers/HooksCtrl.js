@@ -30,11 +30,11 @@ angular.module('hookieMonster')
       $scope.nUsers = nUsers;
     });
 
-    $scope.submit = function(user){
+    $scope.submit = function(){
       $scope.userLoggedIn = true;
-      var cryptMail = CryptoJS.MD5(user.mail || "default");
+      var cryptMail = CryptoJS.MD5($scope.user.mail || "default");
       $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?size=400&d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
-      socketIO.emit('userConnected', user.name || "HookieMonster");
+      socketIO.emit('userConnected', $scope.user.name || "HookieMonster");
     }
 
     $scope.filterHooks = function(value, index) {

@@ -1,5 +1,28 @@
 /* app css stylesheet */
 
+/* Start Page */
+.img-start-logo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+.panel.panel-login {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-heading.panel-heading-login {
+  background-color: rgba(248, 248, 248, 1);
+}
+
+.top {
+  margin-top: 5%;
+}
+
 /* Fonts! */
 @font-face {
   font-family: "HookieFont";
@@ -44,6 +67,7 @@ h3 {
   border-radius: 10px;
   background-color:rgba(255,255,255, 0.8);
   min-height: 450px;
+
 }
 
 .activity-contact {
@@ -97,15 +121,25 @@ h3 {
 }
 
 .animation.ng-enter {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
   opacity: 0;
-  max-height:0;
+  max-height: 0;
 }
-
 .animation.ng-enter-active {
   opacity: 1;
-  max-height:200px;
+  max-height: 100px;
+}
+
+.animation.ng-leave {
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
+  opacity: 1;
+  max-height:100px;
+}
+.animation.ng-leave-active {
+  opacity: 0;
+  max-height:0px;
 }
 
 .uppercase {
