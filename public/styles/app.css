@@ -33,8 +33,9 @@
   font-size: .8em;
   color: #666;
   margin: 0 .1em;
-  height: 25px;
-  padding: 0.15em;
+  height: 29px;
+  width: 29px;
+  padding: 2px;
   line-height: 1.1em;
 }
 
@@ -47,6 +48,7 @@
 }
 .panel.panel-login {
   margin-bottom: 20px;
+  padding-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.75);
   border: 1px solid transparent;
   border-radius: 6px;
@@ -69,7 +71,7 @@
 
 /* Custom container */
 body {
-  color:#0E291E;
+  color:#0bacc7;
   background: url(/images/cookie-background5.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -78,6 +80,11 @@ body {
   background-color:#E8FAF3;
 }
 
+.user-image{
+  border: 2px transparent;
+  box-shadow: 0 1px 1px rgba(11, 172, 199, 0.5);
+  border-radius: 6px;
+}
 
 h1 {
   font-family: HookieFont;
@@ -91,43 +98,61 @@ h2 {
 h3 {
   font-family: HookieFont;
   font-size: 25px;
+  margin: 0;
+}
+h4 {
+  font-family: HookieFont;
+  font-size: 15px;
+  margin: 0;
+}
+
+normal-text {
+  color:
 }
 
 .fa{
-  color:#0E291E;
-  font-size: 20px;
+  color:#0bacc7;
+  font-size: 25px;
 }
 
 .activity-main {
-  box-shadow: 0 0 30px black;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color:rgba(255,255,255, 0.8);
+  margin-top: 5%;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
 .activity-contact {
   padding-left: 2%;
-  height: 400px;
+  padding-right: 2%;
+  height: 450px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .activity-detail {
+  background-color: rgba(248, 248, 248, 0.80);
   height: 100%;
-  padding: 2%;
+  padding-top: 2%;
+  padding-left: 2%;
 }
 
 .twilio {
-  background-color: #FFEEBA;
+  background-color: #FFF3C7;
 }
 
 .dropbox {
   background-color: #C3D1E8;
 }
 
+.hipchat {
+  background-color: #C8E5E0;
+}
+
 .trello{
-  background-color: #0E74AF;
+  background-color: #446F7F;
   color: white !important;
 }
 
