@@ -1,5 +1,43 @@
 /* app css stylesheet */
 
+/*Events Filters! */
+.filters {
+  padding-right:0px;
+}
+
+.filters input {
+  display: none;
+}
+
+.filters .icon {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.filters .icon .fa {
+  visibility: hidden;
+  color: #0bacc7;
+}
+
+.filters input:checked + .icon .fa {
+  visibility: visible;
+}
+
+.filters .icon {
+  background: #f8f8f8;
+  border: 1px solid;
+  border-color: #cac3a8 #f9f0c2 #f9f0c2 #cac3a8;
+  border-radius: .3em;
+  text-align: center;
+  font-size: .8em;
+  color: #666;
+  margin: 0 .1em;
+  height: 25px;
+  padding: 0.15em;
+  line-height: 1.1em;
+}
+
 /* Start Page */
 .img-start-logo {
     display: block;
@@ -66,19 +104,13 @@ h3 {
   -moz-border-radius: 10px;
   border-radius: 10px;
   background-color:rgba(255,255,255, 0.8);
-  min-height: 450px;
-
 }
 
 .activity-contact {
-  padding: 2%;
-  height: 430px;
+  padding-left: 2%;
+  height: 400px;
   overflow-y: auto;
-}
-
-.detail-image{
-  height: 200px;
-  width: 200px
+  overflow-x: hidden;
 }
 
 .activity-detail {

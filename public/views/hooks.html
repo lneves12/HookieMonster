@@ -41,39 +41,48 @@
 	</div>
 
 	<div ng-if="userLoggedIn" class="row activity-main" >
-		<div class="col-md-9 activity-contact {{scrollState}}" id="activities">
-				<div class="row col-md-8">
-					<div ng-repeat="hook in supportedHooks" class="col-md-2">
-						<label for="{{hook}}">
-							<img ng-src="/images/{{hook}}.jpg" height="30px" width="30px"/>
-							<input id="{{hook}}" type="checkbox" name="hooks" value="{{hook}}" ng-model="selectedHooks[hook]">
-						</label>
-					</div>
+		<div class="col-md-9">
+			<br>
+			<div class="row">
+				<div ng-repeat="hook in supportedHooks" class="col-lg-2 col-md-3 col-xs-3 filters">
+					<label for="{{hook}}">
+						<img ng-src="/images/{{hook}}.jpg" height="25px" width="25px"/>
+						<input id="{{hook}}" type="checkbox" name="hooks" value="{{hook}}" ng-model="selectedHooks[hook]">
+						<span class="icon"><i class="fa fa-check"></i></span>
+					</label>
 				</div>
-				<div class="list-group" >
-					<div class="row">Connected Users: {{nUsers}}</div>
+			</div>
+
+			<div class="row">
+				<div class="list-group activity-contact">
 					<div ng-repeat="activity in activities | filter:filterHooks" class="row animation">
 						<activity></activity>
 					</div>
 				</div>
+			</div>
 		</div>
 
-	<div class="col-md-3 activity-detail">
-			<div class="row">
-				<div class="col-md-12">
-				 <img class="detail-image" ng-src="{{gravatarURL}}"/>
+		<div class="col-md-3 activity-detail">
+				<div class="row">
+					<div class="col-md-12">
+					 <img width="200" height="200" class="user-image" ng-src="{{gravatarURL}}"/>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<p><address>
-						<strong>{{user.name}}</strong><br>
-						<abbr ng-if="user.mail" title="Mail">Email:</abbr> {{user.mail}}
-					</address></p>
+				<div class="row">
+					<div class="col-md-12">
+						<p><address>
+							<strong>{{user.name}}</strong><br>
+							<abbr ng-if="user.mail" title="Mail">Email:</abbr> {{user.mail}}
+						</address></p>
+					</div>
 				</div>
-			</div>
+				<div class="row">
+					<div class="col-md-12">
+						Connected Users: {{nUsers}}
+					</div>
+				</div>
+		</div>
 	</div>
-</div>
 
 	<div ng-if="userLoggedIn" class="row text-center">
 		<div class="col-md-12">
