@@ -156,6 +156,11 @@ normal-text {
   color: white !important;
 }
 
+.trello:hover,
+.trello:checked{
+  color: #555 !important;
+}
+
 ::-webkit-scrollbar {
   width: 14px;
   height: 18px;
