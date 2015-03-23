@@ -72,12 +72,15 @@
 /* Custom container */
 body {
   color:#0bacc7;
+  /* Anterior
   background: url(/images/cookie-background5.jpg) no-repeat center center fixed;
+  */
+  background: url(/images/hookie-background.png) no-repeat center top fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color:#E8FAF3;
+  background-color: #F8F8F8;
 }
 
 .user-image{
@@ -97,6 +100,7 @@ h2 {
 }
 h3 {
   font-family: HookieFont;
+  color:#DCAB4C;
   font-size: 25px;
   margin: 0;
 }
@@ -144,11 +148,11 @@ normal-text {
 }
 
 .dropbox {
-  background-color: #C3D1E8;
+ background-color: #C8E5E0;
 }
 
 .hipchat {
-  background-color: #C8E5E0;
+  background-color: #C3D1E8;
 }
 
 .trello{
