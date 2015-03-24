@@ -7,17 +7,17 @@ angular.module('hookieMonster')
   function($scope, socketIO) {
     $scope.supportedHooks = ['twilio', 'dropbox', 'trello', 'hipchat'];
     $scope.activities = [];
-    $scope.selectedHooks = {};
+    // TODO 2: Initialize array
 
     $scope.supportedHooks.forEach(function(e) {
       socketIO.on(e, function(hook){
         $scope.activities.unshift(hook);
       });
-      $scope.selectedHooks[e] = true;
+      // TODO 3: Initialize values as true
+
     });
 
-    $scope.filterHooks = function(value, index) {
-        return value.source === undefined || $scope.selectedHooks[value.source];
-    };
+    // TODO 4: Filters function
+
 
 }]);

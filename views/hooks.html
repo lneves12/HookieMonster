@@ -3,21 +3,14 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<div class="row">
-					<div ng-repeat="hook in supportedHooks" class="col-lg-2 col-md-3 col-xs-3 filters">
-						<label for="{{hook}}">
-							<img ng-src="/images/{{hook}}.jpg" height="29px" width="29px"/>
-							<input id="{{hook}}" type="checkbox" ng-model="selectedHooks[hook]">
-							<span class="icon"><i class="fa fa-check"></i></span>
-						</label>
-					</div>
-				</div>
+				<!-- TODO 1: Draw filters for supported Hooks-->
+
 
 				<div class="row">
 					<div class="col-md-12">
 						<div class="list-group activity-contact">
-
-							<div ng-repeat="activity in activities  | filter:filterHooks" class="animation row">
+							<!-- TODO 5: apply filter to list of events-->
+							<div ng-repeat="activity in activities" class="animation row">
 							  <div class="col-md-12">
 							    <a href="" class="list-group-item {{activity.source}}">
 							        <img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
