@@ -14,13 +14,5 @@ config(['$routeProvider', function($routeProvider) {
     controller: 'HooksCtrl'
   });
 
-}]).
-factory('socketIO', function(socketFactory){
-  var myIoSocket = io.connect('https://154416.ngrok.com/');
-
-  var mySocket = socketFactory({
-      ioSocket: myIoSocket
-    });
-
-    return mySocket;
-});
+}]);
+//TODO 1: Connect to the Hookie Monster server using socket.io

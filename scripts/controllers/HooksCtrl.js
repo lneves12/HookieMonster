@@ -3,16 +3,13 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-.controller('HooksCtrl', ['$scope', 'socketIO',
-  function($scope, socketIO) {
-    $scope.supportedHooks = ['twilio', 'dropbox', 'trello', 'hipchat'];
+.controller('HooksCtrl', ['$scope',
+  function($scope ) {
+    //TODO 2: Add the supported hooks here!
+    $scope.supportedHooks = [];
 
     $scope.activities = [];
 
-    $scope.supportedHooks.forEach(function(e) {
-      socketIO.on(e, function(hook){
-        $scope.activities.unshift(hook);
-      });
-    });
+    //TODO 3: Handle all the new events here!
 
 }]);
