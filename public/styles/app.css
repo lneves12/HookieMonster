@@ -72,10 +72,7 @@
 /* Custom container */
 body {
   color:#0bacc7;
-  /* Anterior
-  background: url(/images/cookie-background5.jpg) no-repeat center center fixed;
-  */
-  background: url(/images/hookie-background.png) no-repeat center top fixed;
+  background: url(/images/hookie-background.jpg) no-repeat center top fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
