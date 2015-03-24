@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row activity-main" >
+		<div class="col-md-12">
+			<div class="row">
+				<div class="list-group activity-contact">
+					<div ng-repeat="activity in activities" class="row animation">
+						<div class="row">
+						  <div class="col-md-12">
+						    <a href="" class="list-group-item {{activity.source}}">
+						        <img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
+						        {{activity.source | uppercase }}  @{{activity.user.name}} <span am-time-ago="activity.date"/> - {{activity.message}}
+						    </a>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
