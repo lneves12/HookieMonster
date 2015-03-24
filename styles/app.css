@@ -1,3 +1,42 @@
+/*Events Filters! */
+.filters {
+  padding-right:0px;
+}
+
+.filters input {
+  display: none;
+}
+
+.filters .icon {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.filters .icon .fa {
+  visibility: hidden;
+  color: #0bacc7;
+}
+
+.filters input:checked + .icon .fa {
+  visibility: visible;
+}
+
+.filters .icon {
+  background: #f8f8f8;
+  border: 1px solid;
+  border-color: #cac3a8 #f9f0c2 #f9f0c2 #cac3a8;
+  border-radius: .3em;
+  text-align: center;
+  font-size: 23px;
+  color: #666;
+  margin: 0 .1em;
+  height: 29px;
+  width: 29px;
+  padding: 2px;
+  line-height: 1.1em;
+}
+
 .top {
   margin-top: 5%;
 }
@@ -51,8 +90,6 @@ h4 {
 }
 
 .activity-contact {
-  padding-left: 2%;
-  padding-right: 2%;
   height: 450px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -77,7 +114,7 @@ h4 {
 }
 
 .trello:hover,
-.trello:checked{
+.trello:focus{
   color: #555 !important;
 }
 
@@ -123,6 +160,8 @@ h4 {
   opacity: 0;
   max-height:0px;
 }
+
+
 
 .uppercase {
     text-transform: uppercase;
