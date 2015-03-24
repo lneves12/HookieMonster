@@ -5,7 +5,7 @@
 angular.module('hookieMonster')
 .controller('HooksCtrl', ['$scope', 'socketIO',
   function($scope, socketIO) {
-    
+
     $scope.supportedHooks = ['twilio', 'dropbox', 'trello', 'hipchat'];
     $scope.activities = [];
     $scope.selectedHooks = {};
@@ -14,7 +14,7 @@ angular.module('hookieMonster')
       socketIO.on(e, function(hook){
         $scope.activities.unshift(hook);
       });
-      $scope.selectedHooks[e] = DEFAULT_FILTERS_START;
+      $scope.selectedHooks[e] = true;
     });
 
     $scope.filterHooks = function(value, index) {
