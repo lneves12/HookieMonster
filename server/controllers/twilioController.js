@@ -21,35 +21,47 @@ module.exports = function() {
   TwilioController.incomingCall = function(request, reply){
 
     var twimlResp = twilio.TwimlResponse();
+    var payload = request.payload;
+    console.log(payload);
 
-  /*  twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/cookiemonster.mp3');
-    twimlResp.say('Welcome to HookieMonster Workshop!');
-    twimlResp.say('Hookie...! Hookie...! Uga uga uga uga uga uuuga uga uga', {
-      voice:'woman',
-      language:'en-gb'
-    }); */
+
+  /*  twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/cookiemonster.mp3'); */
+  /* TODO meter sons RANDOMS AQUI */
     twimlResp.say('Welcome to HookieMonster Workshop!', {
       voice:'woman',
       language:'en-gb'
     });
 
-    twimlResp.dial({}, function(node) {
-      hookieController.clients.forEach(function (element, index, array){
-        node.client(element.id);
-      });
-    });
+    //TODO será que da para ir fazer o tracking com info daqui com a do browser e apenas aparecer os
+    // SIMBOLOS NESSES ?
+    // falta from to
+    //falta passar mail e fazer integração com gravatar
+    // tirar duplo click
+    if(payload.clientId !== undefined && payload.clientId !== null) {
 
-//    exemplo de chamada
-//    twimlResp.dial({callerId:'+351308804107'}, function(node) {
-//            node.number('+351918261154');
-//    });
+        //Call is coming from the browser so let's redirect it for the right client
+        console.log("defined motherfucker");
+        twimlResp.dial({}, function(node) {
+            node.client(payload.clientId);
+        });
 
-    reply(twimlResp.toString()).code(200).header('message', 'Twilio message');
-    console.log(twimlResp.toString());
+        var activity = activityMapper.TwilioClient(request.payload);
 
-    var activity = activityMapper.Twilio(request.payload);
+    } else {
+        //Call isn't coming from the browser so lets redirect it for everyone connected
+        twimlResp.dial({}, function(node) {
+          hookieController.clients.forEach(function (element, index, array){
+            node.client(element.id);
+          });
+        });
+
+        var activity = activityMapper.TwilioPhone(request.payload);
+    }
+
     console.log(activity);
     request.server.plugins.hapio.io.emit('twilio' , activity);
+
+    reply(twimlResp.toString()).code(200).header('message', 'Tilio message');
   }
 
   return TwilioController;

@@ -1,17 +1,18 @@
-<div class="row">
+<!-- TODO: passar controler para fora -->
+<div class="row" ng-controller="ActivityCtrl">
   <div class="col-md-12">
-    <a ng-if="activity.me === true" class="list-group-item">
+    <a ng-if="activity.me === true" class="list-group-item system">
         <img ng-src="/images/hookiemonster.png" height="30px" width="30px"/>
-        Welcome @{{activity.userName}} <span am-time-ago="activity.date">
+        Welcome @{{activity.userName}} <span am-time-ago="activity.date"/>
     </a>
 
-    <a ng-if="activity.me === false" class="list-group-item">
+    <a ng-if="activity.me === false" class="list-group-item system">
         <img ng-src="/images/hookiemonster.png" height="30px" width="30px"/>
-        @{{activity.userName}} has connected! <span am-time-ago="activity.date">
+        @{{activity.userName}} has connected! <span am-time-ago="activity.date"/>
+        <button class="btn btn-success" ng-click="call(activity.userId, activity.userName)"><span class='glyphicon glyphicon-earphone'/></button>
     </a>
-
-    <a ng-if="activity.source" href="" class="list-group-item {{activity.source}}" ng-controller="ActivityCtrl"
-        ng-click="open(activity)">
+    
+    <a ng-if="activity.source" href="" class="list-group-item {{activity.source}}" ng-click="open(activity)">
         <img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
         {{activity.source | uppercase }}  @{{activity.user.name}} <span am-time-ago="activity.date"/> - {{activity.message}}
         <button ng-if="activity.source === 'twilio'" class="btn btn-success" ng-click="answer()"><span class='glyphicon glyphicon-earphone'/></button>

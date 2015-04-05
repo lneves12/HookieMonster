@@ -8,24 +8,15 @@ angular.module('hookieMonster')
 
     $scope.log = "HOOKIE MONSTER IS WAITING!";
 
-    Twilio.Device.ready(function (device) {
-      $scope.log = "Ready";
-    });
-
     Twilio.Device.error(function (error) {
-      $scope.log = "Error: " + error.message;
-    });
-
-    Twilio.Device.connect(function (conn) {
-      $scope.log = "Successfully established call";
+      $scope.chamada = {};
     });
 
     Twilio.Device.disconnect(function (conn) {
-      $scope.log = "Call ended";
+      $scope.chamada = {};
      });
 
      Twilio.Device.incoming(function (conn) {
-       $scope.log = "Incoming connection from " + conn.parameters.From;
        $scope.chamada = conn;
     });
 
@@ -37,6 +28,12 @@ angular.module('hookieMonster')
 
     $scope.hangup = function(){
       Twilio.Device.disconnectAll();
+      $scope.chamada = {};
+    }
+
+    $scope.call = function(clientId, clientName) {
+        var params = {"clientId": clientId , "clientName" : clientName};
+        Twilio.Device.connect(params);
     }
 
     $scope.open = function(activity){

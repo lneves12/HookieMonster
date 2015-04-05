@@ -2,14 +2,28 @@
 var trelloMapper = require('./trelloMapper')();
 
 module.exports = {
-  Twilio: function (twilioReq) {
+  TwilioPhone: function (twilioReq) {
    return {'source' : 'twilio',
     'user' : {name : twilioReq.From},
     'message' : twilioReq.CallStatus,
 	  'date' : twilioReq.CallDuration,
     'img' : 'twilio.jpg',
-    'detail' : {}
-     };
+    'detail' : {
+      'callSid' : twilioReq.CallSid
+    }
+    };
+  },
+  TwilioClient: function (twilioReq) {
+   return {'source' : 'twilio',
+    'user' : {name : twilioReq.clientName},
+    'message' : twilioReq.CallStatus,
+    'date' : twilioReq.CallDuration,
+    'img' : 'twilio.jpg',
+    'detail' : {
+      'callSid' : twilioReq.CallSid,
+      'clientId' : twilioReq.clientId
+    }
+    };
   },
   Hipchat: function (hipchatReq) {
     return {'source' : 'hipchat',

@@ -35,22 +35,26 @@ var io = server.plugins.hapio.io;
 io.on('connection', function(socket) {
     console.log('User connect');
 
-    socket.on('userConnected', function(userName){
+    socket.on('Submitted', function(userName){
       hookieController.addClient(socket);
-      socket.emit('youConnected' , userName); //emit to the original sender
-      socket.broadcast.emit('userConnected', userName); //emit to all other senders
+
+      socket.broadcast.emit('newUserConnected', userName, socket.id); //emit to all other senders
       io.emit('nUsers', hookieController.clients.length);
 
       var capability = new twilio.Capability(config.TwilioAccountSID, config.TwilioAuthToken);
       capability.allowClientIncoming(socket.id);
-      server.plugins.hapio.io.emit('twilioToken', capability.generate());
+      capability.allowClientOutgoing("AP1276f3bb06a7a3793759acfc3c246306");
+
+      console.log("socketid: " + socket.id);
+
+      socket.emit('youConnected' , userName, capability.generate()); //emit to the original sender
 
       console.log(userName + ' has connected');
     });
 
     socket.on('disconnect', function () {
       hookieController.removeClient(socket);
-      socket.emit('nUsers', hookieController.clients.length);
+      io.emit('nUsers', hookieController.clients.length);
     });
 
 });

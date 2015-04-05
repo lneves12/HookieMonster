@@ -18,12 +18,14 @@ angular.module('hookieMonster')
       $scope.selectedHooks[e] = true;
     });
 
-    socketIO.on('userConnected', function(userName){
-      $scope.activities.unshift({userName:userName, me:false, date: new Date()});
+    socketIO.on('newUserConnected', function(userName, userSocketId){
+      $scope.activities.unshift({userName:userName, me:false, date: new Date(), userId: userSocketId});
+      $scope.user.id = userSocketId;
     });
 
-    socketIO.on('youConnected', function(userName){
+    socketIO.on('youConnected', function(userName, twilioToken){
       $scope.activities.unshift({userName:userName, me:true, date: new Date()});
+      Twilio.Device.setup(twilioToken);
     });
 
     socketIO.on('nUsers', function(nUsers){
@@ -36,16 +38,14 @@ angular.module('hookieMonster')
       $scope.user.mail = $scope.user.mail || "No gravatar mail"
       var cryptMail = CryptoJS.MD5($scope.user.mail );
       $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?size=400&d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
-      socketIO.emit('userConnected', $scope.user.name || "HookieMonster");
+      socketIO.emit('Submitted', $scope.user.name || "HookieMonster");
     }
 
     $scope.filterHooks = function(value, index) {
         return value.source === undefined || $scope.selectedHooks[value.source];
     };
 
-    socketIO.on('twilioToken', function(twilioToken){
-      Twilio.Device.setup(twilioToken);
-    });
+
 }]).
 directive('activity', function() {
   return {
