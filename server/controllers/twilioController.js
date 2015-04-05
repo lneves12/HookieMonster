@@ -24,13 +24,8 @@ module.exports = function() {
     var payload = request.payload;
     console.log(payload);
 
-
-  /*  twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/cookiemonster.mp3'); */
-  /* TODO meter sons RANDOMS AQUI */
-    twimlResp.say('Welcome to HookieMonster Workshop!', {
-      voice:'woman',
-      language:'en-gb'
-    });
+    var randomSound = Math.floor(Math.random() * 8);
+    twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/' + randomSound + '.mp3');
 
     //TODO será que da para ir fazer o tracking com info daqui com a do browser e apenas aparecer os
     // SIMBOLOS NESSES ?

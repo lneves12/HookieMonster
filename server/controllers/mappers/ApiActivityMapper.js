@@ -6,7 +6,7 @@ module.exports = {
    return {'source' : 'twilio',
     'user' : {name : twilioReq.From},
     'message' : twilioReq.CallStatus,
-	  'date' : twilioReq.CallDuration,
+	  'date' : Date.now(),
     'img' : 'twilio.jpg',
     'detail' : {
       'callSid' : twilioReq.CallSid
@@ -17,7 +17,7 @@ module.exports = {
    return {'source' : 'twilio',
     'user' : {name : twilioReq.clientName},
     'message' : twilioReq.CallStatus,
-    'date' : twilioReq.CallDuration,
+    'date' : Date.now(),
     'img' : 'twilio.jpg',
     'detail' : {
       'callSid' : twilioReq.CallSid,
