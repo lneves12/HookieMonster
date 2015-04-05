@@ -10,6 +10,7 @@ angular.module('hookieMonster')
     $scope.activities = [];
     $scope.user = {name: '' , mail: ''};
     $scope.selectedHooks = {};
+    $scope.isCallActive = false;
 
     $scope.supportedHooks.forEach(function(e) {
       socketIO.on(e, function(hook){
@@ -26,6 +27,7 @@ angular.module('hookieMonster')
     socketIO.on('youConnected', function(userName, twilioToken){
       $scope.activities.unshift({userName:userName, me:true, date: new Date()});
       Twilio.Device.setup(twilioToken);
+      configureTwilio();
     });
 
     socketIO.on('nUsers', function(nUsers){
@@ -44,6 +46,41 @@ angular.module('hookieMonster')
     $scope.filterHooks = function(value, index) {
         return value.source === undefined || $scope.selectedHooks[value.source];
     };
+
+    $scope.answer = function(){
+      if($scope.chamada!==undefined){
+        $scope.chamada.accept();
+      }
+    }
+
+    $scope.hangup = function(){
+      Twilio.Device.disconnectAll();
+      setCallActive({}, false);
+    }
+
+    var setCallActive = function(call, val){
+      $scope.chamada = call;
+      $scope.isCallActive = val;
+      $scope.$apply();
+    }
+
+    var configureTwilio = function() {
+
+       Twilio.Device.incoming(function (conn) {
+         setCallActive(conn, true);
+      });
+
+      Twilio.Device.error(function (error) {
+        Twilio.Device.disconnectAll();
+        setCallActive({}, false);
+      });
+
+      Twilio.Device.disconnect(function (conn) {
+        Twilio.Device.disconnectAll();
+        setCallActive({}, false);
+       });
+
+    }
 
 
 }]).

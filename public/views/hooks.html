@@ -59,7 +59,15 @@
 						</address></p>
 					</div>
 				</div>
-				<br><br><br><br><br><br><br>
+				<div class="row">
+					<div class="col-md-6">
+						<button ng-show="isCallActive" class="btn btn-success" ng-click="answer()"><span class='glyphicon glyphicon-earphone'/> Answer</button>
+					</div>
+					<div class="col-md-6">
+						<button ng-show="isCallActive" class="btn btn-danger" ng-click="hangup()"><span class='glyphicon glyphicon-earphone'/> Reject</button>
+					</div>
+				</div>
+				<br><br><br><br><br><br>
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<h4>Connected Users: {{nUsers}}</h4>
