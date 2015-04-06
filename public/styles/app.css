@@ -213,3 +213,17 @@ normal-text {
 .lowercase {
     text-transform: lowercase;
 }
+
+/* blinking */
+
+@-moz-keyframes blink {0%{opacity:1;} 50%{opacity:0.2;} 100%{opacity:1;}} /* Firefox */
+@-webkit-keyframes blink {0%{opacity:1;} 50%{opacity:0.2;} 100%{opacity:1;}} /* Webkit */
+@-ms-keyframes blink {0%{opacity:1;} 50%{opacity:0.2;} 100%{opacity:1;}} /* IE */
+@keyframes blink {0%{opacity:1;} 50%{opacity:0.2; color:} 100%{opacity:1;}} /* Opera and prob css3 final iteration */
+
+img.blink {
+    -moz-animation:blink normal 1s infinite ease-in-out;
+    -webkit-animation:blink normal 1s infinite ease-in-out;
+    -ms-animation:blink normal 1s infinite ease-in-out;
+    animation:blink normal 1s infinite ease-in-out;
+}

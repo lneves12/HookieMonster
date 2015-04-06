@@ -27,9 +27,7 @@ module.exports = function() {
     var randomSound = Math.floor(Math.random() * 8);
     twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/' + randomSound + '.mp3');
 
-    //TODO será que da para ir fazer o tracking com info daqui com a do browser e apenas aparecer os
-    // SIMBOLOS NESSES ?
-    // falta from to
+    //TODO 
     //falta passar mail e fazer integração com gravatar
     // tirar duplo click
     if(payload.clientId !== undefined && payload.clientId !== null) {
