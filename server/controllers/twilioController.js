@@ -25,7 +25,7 @@ module.exports = function() {
     console.log(payload);
 
     var randomSound = Math.floor(Math.random() * 8);
-    twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/' + randomSound + '.mp3');
+    twimlResp.play(config.url + '/sounds/' + randomSound + '.mp3');
 
     //TODO
     //falta passar mail e fazer integração com gravatar
