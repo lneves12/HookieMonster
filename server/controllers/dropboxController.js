@@ -23,7 +23,7 @@ module.exports = function() {
 
   var params = { include_media_info: true };
 
-  /*
+
   dropboxPostRequest("/1/delta/latest_cursor", params, function(err, res, body) {
     if(err) {
       console.log(err + res);
@@ -33,7 +33,7 @@ module.exports = function() {
     cursor = json.cursor;
     console.log("Got cursor " + cursor);
   });
-*/
+
   return DropboxController;
 }
 
