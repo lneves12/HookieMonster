@@ -43,7 +43,7 @@ io.on('connection', function(socket) {
 
       var capability = new twilio.Capability(config.TwilioAccountSID, config.TwilioAuthToken);
       capability.allowClientIncoming(socket.id);
-      capability.allowClientOutgoing("AP1276f3bb06a7a3793759acfc3c246306");
+      capability.allowClientOutgoing(config.TwilioAppid);
 
       console.log("socketid: " + socket.id);
 

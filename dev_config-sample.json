@@ -5,6 +5,7 @@
   },
   "TwilioAccountSID": "",
   "TwilioAuthToken": "",
+  "TwilioAppid": "",
   "trello" : {
   	"idModel" : "",
   	"key" : "",
