@@ -4,8 +4,8 @@
 
 angular.module('hookieMonster')
 // TODO 2: Injectar ao controller o modulo ngDialog
-.controller('HooksCtrl', ['$scope', 'socketIO', 'ngDialog',
-  function($scope, socketIO, ngDialog) {
+.controller('HooksCtrl', ['$scope', 'socketIO',
+  function($scope, socketIO) {
 
     $scope.supportedHooks = ['twilio', 'dropbox', 'trello', 'hipchat'];
     $scope.activities = [];

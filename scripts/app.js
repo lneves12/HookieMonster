@@ -7,7 +7,6 @@ angular.module('hookieMonster', [
     'ngAnimate',
     'angularMoment',
     // TODO 1: Adicionar o modulo ngDialog à app
-    'ngDialog'
 ]).
 config(['$routeProvider', function($routeProvider) {
 
