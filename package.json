@@ -14,6 +14,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.4.1",
     "dropbox": "^0.10.3",
     "future": "^2.3.1",
     "getconfig": "^0.3.0",
