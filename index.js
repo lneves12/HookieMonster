@@ -13,7 +13,7 @@ var hookieController = require('./server/controllers/hookieController');
 
 
 // Create a server with a host and port
-var server = new Hapi.Server(process.env.PORT);
+var server = new Hapi.Server(+process.env.PORT, '0.0.0.0');
 
 /*
 server.connection({
