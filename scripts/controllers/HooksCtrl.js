@@ -3,7 +3,6 @@
 /* Controllers */
 
 angular.module('hookieMonster')
-// TODO 2: Injectar ao controller o modulo ngDialog
 .controller('HooksCtrl', ['$scope', 'socketIO', 'ngDialog',
   function($scope, socketIO, ngDialog) {
 
@@ -22,7 +21,6 @@ angular.module('hookieMonster')
         return value.source === undefined || $scope.selectedHooks[value.source];
     };
 
-    // TODO 4: Função para abrir o detalhe
     $scope.open = function(activity){
       ngDialog.open({
         templateUrl: '../views/activityDetail-' + activity.source + '.html',

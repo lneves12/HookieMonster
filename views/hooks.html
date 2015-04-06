@@ -19,7 +19,6 @@
 
 							<div ng-repeat="activity in activities  | filter:filterHooks" class="animation row">
 							  <div class="col-md-12">
-									<!-- TODO 3: Abrir o detalhe -->
 							    <a href="" class="list-group-item {{activity.source}}" ng-click="open(activity)">
 							        <img ng-src="/images/{{activity.img}}" height="30px" width="30px"/>
 							        {{activity.source | uppercase }}  @{{activity.user.name}} <span am-time-ago="activity.date"/> - {{activity.message}}
