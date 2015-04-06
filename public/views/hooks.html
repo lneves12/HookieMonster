@@ -1,0 +1,89 @@
+<div class="container">
+
+	<div ng-if="!userLoggedIn" class="col-md-6 col-md-offset-3 top">
+    <div class="panel panel-default panel-login">
+        <div class="panel-heading panel-heading-login">
+            <div class="row-fluid user-row">
+                <img src="/images/logoVert.gif" class="img-start-logo" alt="Hookie Monster!"/>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ng-form ng-if="!userLoggedIn" name="loginForm" class="form-signin">
+                <fieldset>
+                    <br>
+                    <input class="form-control" placeholder="Your Name" type="text" ng-model="user.name">
+										<br>
+                    <input class="form-control" placeholder="Your Gravatar Email" type="text" ng-model="user.mail">
+                    <br></br>
+                    <input class="btn btn-lg btn-info btn-block" type="submit" ng-click="submit()" value="Join the HookieMonster World!">
+                </fieldset>
+            </ng-form>
+        </div>
+    </div>
+	</div>
+
+
+	<div ng-if="userLoggedIn" class="row activity-main" >
+		<div class="col-md-9">
+			<br>
+			<div class="row">
+				<div ng-repeat="hook in supportedHooks" class="col-lg-2 col-md-3 col-xs-3 filters">
+					<label for="{{hook}}">
+						<img ng-src="/images/{{hook}}.jpg" height="29px" width="29px"/>
+						<input id="{{hook}}" type="checkbox" name="hooks" value="{{hook}}" ng-model="selectedHooks[hook]">
+						<span class="icon"><i class="fa fa-check"></i></span>
+					</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="list-group activity-contact">
+					<div ng-repeat="activity in activities | filter:filterHooks" class="row animation">
+						<activity></activity>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-3 activity-detail">
+				<div class="row">
+					<div class="col-md-12">
+					 <img width="225" height="225" class="user-image" ng-class="{blink: isRinging}" ng-src="{{gravatarURL}}"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p><address>
+							<strong>Name: </strong> {{user.name}} <br>
+							<strong>Email: </strong> {{user.mail}}
+						</address></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<button ng-show="isCallActive" class="btn btn-success" ng-click="answer()"><span class='glyphicon glyphicon-earphone'/> Answer</button>
+					</div>
+					<div class="col-md-6">
+						<button ng-show="isCallActive" class="btn btn-danger" ng-click="hangup()"><span class='glyphicon glyphicon-earphone'/> Reject</button>
+					</div>
+				</div>
+				<br><br><br><br><br><br>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h4>Connected Users: {{nUsers}}</h4>
+					</div>
+				</div>
+
+				<div class="row text-center">
+					<div class="col-md-12">
+						<h3>HOOK all the events!</h3>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-md-12">
+						<a href="#"><i class="fa fa-facebook-official"></i></a> <a href="#"><i class="fa fa-google-plus-square"></i></a>  <a href="#"><i class="fa fa-twitter-square"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>

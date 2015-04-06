@@ -1,0 +1,229 @@
+/* app css stylesheet */
+
+/*Events Filters! */
+.filters {
+  padding-right:0px;
+}
+
+.filters input {
+  display: none;
+}
+
+.filters .icon {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.filters .icon .fa {
+  visibility: hidden;
+  color: #0bacc7;
+}
+
+.filters input:checked + .icon .fa {
+  visibility: visible;
+}
+
+.filters .icon {
+  background: #f8f8f8;
+  border: 1px solid;
+  border-color: #cac3a8 #f9f0c2 #f9f0c2 #cac3a8;
+  border-radius: .3em;
+  text-align: center;
+  font-size: .8em;
+  color: #666;
+  margin: 0 .1em;
+  height: 29px;
+  width: 29px;
+  padding: 2px;
+  line-height: 1.1em;
+}
+
+/* Start Page */
+.img-start-logo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+.panel.panel-login {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-heading.panel-heading-login {
+  background-color: rgba(248, 248, 248, 1);
+}
+
+.top {
+  margin-top: 5%;
+}
+
+/* Fonts! */
+@font-face {
+  font-family: "HookieFont";
+  src: url(/styles/mrsmonster.ttf) format("truetype");
+}
+
+/* Custom container */
+body {
+  color:#0bacc7;
+  background: url(/images/hookie-background.jpg) no-repeat center top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #F8F8F8;
+}
+
+.user-image{
+  border: 2px transparent;
+  box-shadow: 0 1px 1px rgba(11, 172, 199, 0.5);
+  border-radius: 6px;
+}
+
+h1 {
+  font-family: HookieFont;
+  font-size: 45px;
+}
+
+h2 {
+  font-family: HookieFont;
+  font-size: 30px;
+}
+h3 {
+  font-family: HookieFont;
+  color:#DCAB4C;
+  font-size: 25px;
+  margin: 0;
+}
+h4 {
+  font-family: HookieFont;
+  font-size: 15px;
+  margin: 0;
+}
+
+normal-text {
+  color:
+}
+
+.fa{
+  color:#0bacc7;
+  font-size: 25px;
+}
+
+.activity-main {
+  margin-top: 5%;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.activity-contact {
+  padding-left: 2%;
+  padding-right: 2%;
+  height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.activity-detail {
+  background-color: rgba(248, 248, 248, 0.80);
+  height: 100%;
+  padding-top: 2%;
+  padding-left: 2%;
+}
+
+.twilio {
+  background-color: #FFF3C7;
+}
+
+.dropbox {
+ background-color: #C8E5E0;
+}
+
+.hipchat {
+  background-color: #C3D1E8;
+}
+
+.trello{
+  background-color: #446F7F;
+  color: white !important;
+}
+
+.trello:hover,
+.trello:checked{
+  color: #555 !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 18px;
+}
+::-webkit-scrollbar-thumb {
+  height: 6px;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.animation.ng-enter {
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
+  opacity: 0;
+  max-height: 0;
+}
+.animation.ng-enter-active {
+  opacity: 1;
+  max-height: 100px;
+}
+
+.animation.ng-leave {
+  -webkit-transition:all linear 0.3s;
+  transition:all linear 0.3s;
+  opacity: 1;
+  max-height:100px;
+}
+.animation.ng-leave-active {
+  opacity: 0;
+  max-height:0px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+/* blinking */
+
+@-moz-keyframes blink {0%{opacity:1;} 50%{opacity:0.2;} 100%{opacity:1;}} /* Firefox */
+@-webkit-keyframes blink {0%{opacity:1;} 50%{opacity:0.2;} 100%{opacity:1;}} /* Webkit */
+@-ms-keyframes blink {0%{opacity:1;} 50%{opacity:0.2;} 100%{opacity:1;}} /* IE */
+@keyframes blink {0%{opacity:1;} 50%{opacity:0.2; color:} 100%{opacity:1;}} /* Opera and prob css3 final iteration */
+
+img.blink {
+    -moz-animation:blink normal 1s infinite ease-in-out;
+    -webkit-animation:blink normal 1s infinite ease-in-out;
+    -ms-animation:blink normal 1s infinite ease-in-out;
+    animation:blink normal 1s infinite ease-in-out;
+}
