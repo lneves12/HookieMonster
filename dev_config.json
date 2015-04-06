@@ -1,0 +1,17 @@
+{
+  "http": {
+    "listen": "localhost",
+    "port": 3000
+  },
+  "TwilioAccountSID": "AC991e069a95bd48b774a20815788c80e1",
+  "TwilioAuthToken": "6e3bf82f68002518d521fbaa531648ff",
+  "TwilioAppid": "APe9e085bec52868f3b1b32daad082c5dc",
+  "trello" : {
+      "idModel" : "54c3d739d2d1891f3cfec91b",
+      "key" : "ec856c6d45e209283c4001d1f1f0f497",
+      "secret" : "a9a0e15cdd6264144a5cd7d9c6125d2964434cf7f250ca9a5f8efd2a62105f86",
+      "token" : "05772ae3cefcd0e850f8ddb773271076f5158b1f88db10380b1b7acdc3179b2c"
+  },
+  "ngrok": "154416",
+  "DropboxAuthToken": "i97OUXRyypgAAAAAAAAFsG_-cqJUanWgWQQWDEN_PTVFx3XKYsBKZMrcDD9KrK9g"
+}
