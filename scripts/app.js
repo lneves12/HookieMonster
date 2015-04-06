@@ -17,7 +17,7 @@ config(['$routeProvider', function($routeProvider) {
 
 }]).
 factory('socketIO', function(socketFactory){
-  var myIoSocket = io.connect('https://1bc4e31.ngrok.com/');
+  var myIoSocket = io.connect('https://hookiemonster.herokuapp.com/');
 
   var mySocket = socketFactory({
       ioSocket: myIoSocket
