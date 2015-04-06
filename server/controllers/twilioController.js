@@ -27,13 +27,12 @@ module.exports = function() {
     var randomSound = Math.floor(Math.random() * 8);
     twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/' + randomSound + '.mp3');
 
-    //TODO 
+    //TODO
     //falta passar mail e fazer integração com gravatar
     // tirar duplo click
     if(payload.clientId !== undefined && payload.clientId !== null) {
 
         //Call is coming from the browser so let's redirect it for the right client
-        console.log("defined motherfucker");
         twimlResp.dial({}, function(node) {
             node.client(payload.clientId);
         });

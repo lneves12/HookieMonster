@@ -48,15 +48,45 @@ angular.module('hookieMonster')
     };
 
     $scope.answer = function(){
-      //if (typeof $scope.chamada.accept() == 'function') { $scope.chamada.accept(); }
-      $scope.chamada.accept();
+      if (typeof $scope.chamada.accept == 'function'){
+        $scope.chamada.accept();
+        setCallActive($scope.chamada, true, false);
+      }
     }
 
     $scope.hangup = function(){
       Twilio.Device.disconnectAll();
-      $scope.chamada.reject();
+      rejectCall($scope.chamada);
+    }
 
-      setCallActive({}, false, false);
+    var configureTwilio = function() {
+      $scope.chamada = {};
+
+       Twilio.Device.incoming(function (conn) {
+         setCallActive(conn, true, true);
+      });
+
+      Twilio.Device.error(function (error) {
+        Twilio.Device.disconnectAll();
+        rejectCall($scope.chamada);
+      });
+
+      Twilio.Device.disconnect(function (conn) {
+        Twilio.Device.disconnectAll();
+        rejectCall($scope.chamada);
+      });
+
+       Twilio.Device.cancel(function (conn) {
+           Twilio.Device.disconnectAll();
+           rejectCall($scope.chamada);
+         });
+    }
+
+    var rejectCall = function(call) {
+      if (typeof $scope.chamada.reject == 'function'){
+        $scope.chamada.reject();
+        setCallActive({}, false, false);
+      }
     }
 
     var setCallActive = function(call, callActive, isRinging){
@@ -67,21 +97,6 @@ angular.module('hookieMonster')
       $scope.$evalAsync();
     }
 
-    var configureTwilio = function() {
-       Twilio.Device.incoming(function (conn) {
-         setCallActive(conn, true, true);
-      });
-
-      Twilio.Device.error(function (error) {
-        Twilio.Device.disconnectAll();
-        setCallActive({}, false, false);
-      });
-
-      Twilio.Device.disconnect(function (conn) {
-        Twilio.Device.disconnectAll();
-        setCallActive({}, false, false);
-       });
-    }
 }]).
 directive('activity', function() {
   return {
