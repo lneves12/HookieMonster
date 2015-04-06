@@ -3,8 +3,8 @@
     "listen": "localhost",
     "port": 3000
   },
-  "TwilioAccountSID": "AC991e069a95bd48b774a20815788c80e1",
-  "TwilioAuthToken": "6e3bf82f68002518d521fbaa531648ff",
+  "TwilioAccountSID": "ACbbc1979a824a767f3e241c0efda9b5ea",
+  "TwilioAuthToken": "490be29330aa24623be6f300ae6f7c14",
   "TwilioAppid": "APe9e085bec52868f3b1b32daad082c5dc",
   "trello" : {
       "idModel" : "54c3d739d2d1891f3cfec91b",
