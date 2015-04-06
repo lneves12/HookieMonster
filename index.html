@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/styles/app.css">
+        <link rel="stylesheet" type="text/css" href="/styles/ngdialog-theme-default.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/ngDialog/css/ngDialog.min.css">s
     </head>
 
     <body ng-app="hookieMonster" ng-view>
@@ -25,11 +27,14 @@
     <!-- Angular APP -->
     <script src="/scripts/app.js"></script>
 
+    <script src="/bower_components/ngDialog/js/ngDialog.min.js"></script>
+
     <!-- APP Controllers -->
     <script src="/scripts/controllers/HooksCtrl.js"></script>
+    <script src="/scripts/controllers/DetailCtrl.js"></script>
 
     <!-- Socket.IO -->
-    <script src="https://154416.ngrok.com/socket.io/socket.io.js"></script>
+    <script src="https://1bc4e31.ngrok.com/socket.io/socket.io.js"></script>
     <script src="/bower_components/angular-socket-io/socket.js"></script>
 
     <script src="/bower_components/moment/moment.js"></script>

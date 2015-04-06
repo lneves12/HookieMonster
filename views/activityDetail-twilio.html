@@ -1,0 +1,20 @@
+<div class="panel">
+  <div class="panel-head row">
+  	<div class="col-md-2">
+	  	<img ng-src="/images/twilio.jpg" width="50" height="50">
+	</div>
+	<div class="col-md-2">
+      <!--TODO 5: Origem do evento e criador -->
+	  	<label class="uppercase">{{activity.source}}</label>
+	  	<label>@{{activity.user.name}}</label>
+	</div>
+  </div>
+  <div class="panel-body">
+    <!--TODO 5: Data do evento -->
+    <label>{{activity.date | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}</label>
+
+  	<p>{{activity.detail.message}}<p>
+    <!--TODO: do whatever you want for this source... -->
+
+  </div>
+</div>

@@ -5,7 +5,9 @@ angular.module('hookieMonster', [
     'ngRoute',
     'btford.socket-io',
     'ngAnimate',
-    'angularMoment'
+    'angularMoment',
+    // TODO 1: Adicionar o modulo ngDialog à app
+    'ngDialog'
 ]).
 config(['$routeProvider', function($routeProvider) {
 
@@ -16,7 +18,7 @@ config(['$routeProvider', function($routeProvider) {
 
 }]).
 factory('socketIO', function(socketFactory){
-  var myIoSocket = io.connect('https://154416.ngrok.com/');
+  var myIoSocket = io.connect('https://1bc4e31.ngrok.com/');
 
   var mySocket = socketFactory({
       ioSocket: myIoSocket
