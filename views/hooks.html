@@ -8,14 +8,11 @@
             </div>
         </div>
         <div class="panel-body">
-            <ng-form ng-if="!userLoggedIn" name="loginForm" class="form-signin">
+            <ng-form name="loginForm" class="form-signin">
                 <fieldset>
                     <br>
-                    <input class="form-control" placeholder="Your Name" type="text" ng-model="user.name">
-										<br>
-                    <input class="form-control" placeholder="Your Gravatar Email" type="text" ng-model="user.mail">
-                    <br></br>
-                    <input class="btn btn-lg btn-info btn-block" type="submit" ng-click="submit()" value="Join the HookieMonster World!">
+										<!-- TODO 1: formulario com username e email-->
+
                 </fieldset>
             </ng-form>
         </div>
@@ -56,23 +53,18 @@
 		<div class="col-md-3 activity-detail">
 				<div class="row">
 					<div class="col-md-12">
-					 <img width="225" height="225" class="user-image" ng-src="{{gravatarURL}}"/>
+						<!-- TODO 4: Imagem do utilizador-->
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<p><address>
-							<strong>Name: </strong> {{user.name}} <br>
-							<strong>Email: </strong> {{user.mail}}
+							<!-- TODO 3: Mostrar user logado-->
+
 						</address></p>
 					</div>
 				</div>
-				<br><br><br><br><br><br><br>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<h4>Connected Users: {{nUsers}}</h4>
-					</div>
-				</div>
+				<br><br><br><br><br><br><br><br>
 
 				<div class="row text-center">
 					<div class="col-md-12">
