@@ -1,13 +1,12 @@
 var HookieController = module.exports = {
-    clients: [],
-    addClient: function(socket) {
-      HookieController.clients.push(socket);
+    clients: {},
+    addClient: function(socket, name, mail) {
+      HookieController.clients[socket.id] = {};
+      HookieController.clients[socket.id]['socket'] = socket;
+      HookieController.clients[socket.id]['name'] = name;
+      HookieController.clients[socket.id]['mail'] = mail;
     },
     removeClient: function(socket) {
-      var index = HookieController.clients.indexOf(socket);
-      if (index != -1) {
-        HookieController.clients.splice(index, 1);
-          console.info('Client gone (id=' + socket.id + ').');
-      }
+      delete HookieController.clients[socket.id];
     }
 }

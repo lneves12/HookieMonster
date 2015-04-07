@@ -25,13 +25,12 @@ module.exports = function() {
     console.log(payload);
 
     var randomSound = Math.floor(Math.random() * 8);
-    twimlResp.play('https://' + config.ngrok + '.ngrok.com/sounds/' + randomSound + '.mp3');
+    twimlResp.play(config.url + '/sounds/' + randomSound + '.mp3');
 
     //TODO
     //falta passar mail e fazer integração com gravatar
     // tirar duplo click
-    if(payload.clientId !== undefined && payload.clientId !== null) {
-
+    if(payload.From !== undefined && payload.From.indexOf("client") === 0) {
         //Call is coming from the browser so let's redirect it for the right client
         twimlResp.dial({}, function(node) {
             node.client(payload.clientId);
@@ -42,9 +41,9 @@ module.exports = function() {
     } else {
         //Call isn't coming from the browser so lets redirect it for everyone connected
         twimlResp.dial({}, function(node) {
-          hookieController.clients.forEach(function (element, index, array){
-            node.client(element.id);
-          });
+          for (var key in hookieController.clients) {
+            node.client(key);
+        }
         });
 
         var activity = activityMapper.TwilioPhone(request.payload);

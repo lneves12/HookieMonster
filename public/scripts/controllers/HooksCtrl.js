@@ -40,7 +40,7 @@ angular.module('hookieMonster')
       $scope.user.mail = $scope.user.mail || "No gravatar mail"
       var cryptMail = CryptoJS.MD5($scope.user.mail );
       $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?size=400&d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
-      socketIO.emit('Submitted', $scope.user.name || "HookieMonster");
+      socketIO.emit('Submitted', $scope.user.name , $scope.user.mail);
     }
 
     $scope.filterHooks = function(value, index) {

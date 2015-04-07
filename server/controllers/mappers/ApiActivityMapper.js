@@ -1,5 +1,6 @@
 // Objectivo: Mapear todos os dados vindos de sources diferentes para a mesma estrutura para ser mostrada da mesma forma
 var trelloMapper = require('./trelloMapper')();
+var hookieController = require('../hookieController');
 
 module.exports = {
   TwilioPhone: function (twilioReq) {
@@ -15,23 +16,25 @@ module.exports = {
   },
   TwilioClient: function (twilioReq) {
    return {'source' : 'twilio',
-    'user' : {name : twilioReq.clientName},
+    'user' : {name : hookieController.clients[twilioReq.From.substring(7, twilioReq.From.length)].name},
     'message' : twilioReq.CallStatus,
     'date' : Date.now(),
     'img' : 'twilio.jpg',
     'detail' : {
-      'callSid' : twilioReq.CallSid,
-      'clientId' : twilioReq.clientId
+      'fromMail': hookieController.clients[twilioReq.From.substring(7, twilioReq.From.length)].mail
     }
     };
   },
-  Hipchat: function (hipchatReq) {
+  Hipchat: function (hipchatReq, mail) {
     return {'source' : 'hipchat',
      'user' : {name : hipchatReq.item.message.from.name},
-     'message' : hipchatReq.item.message.message,
+     'message' : hipchatReq.item.message.message.substring(8, hipchatReq.item.message.message.length),
      'date' : hipchatReq.item.message.date,
      'img' : 'hipchat.jpg',
-     'detail' : {}
+     'detail' : {
+       'message': hipchatReq.item.message.message.substring(8, hipchatReq.item.message.message.length),
+       'fromMail': mail
+     }
       };
   },
   Dropbox: function (dropboxReq) {
