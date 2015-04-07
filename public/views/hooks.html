@@ -10,11 +10,11 @@
         <div class="panel-body">
             <ng-form ng-if="!userLoggedIn" name="loginForm" class="form-signin">
                 <fieldset>
-                    <br>
-                    <input class="form-control" placeholder="Your Name" type="text" ng-model="user.name">
 										<br>
-                    <input class="form-control" placeholder="Your Gravatar Email" type="text" ng-model="user.mail">
-                    <br></br>
+										<input class="form-control" placeholder="Your Username (use the same as hipchat, etc)" type="text" ng-model="user.name">
+										<br>
+										<input class="form-control" placeholder="Your Email (use the same as gravatar, etc)" type="text" ng-model="user.mail">
+										<br></br>
                     <input class="btn btn-lg btn-info btn-block" type="submit" ng-click="submit()" value="Join the HookieMonster World!">
                 </fieldset>
             </ng-form>
