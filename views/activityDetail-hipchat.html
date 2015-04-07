@@ -10,6 +10,8 @@
   </div>
   <div class="panel-body">
     <label>{{activity.date | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}</label>
-  	<p>{{activity.detail.message}}<p>
+    <p><Strong>Message: </Strong>{{activity.detail.message}} asd<p>
+    <p><Strong>From: </Strong></p>
+    <img ng-src="{{gravatarURL}}"/>
   </div>
 </div>
