@@ -9,7 +9,7 @@ module.exports = function() {
   TrelloController.registerCallback = function(){
     var requestParams = { url:"https://trello.com/1/tokens/" + config.trello.token + "/webhooks/?key=" + config.trello.key, 
                           form: { description:'My trello webhook', 
-                                  callbackURL: "http://" + config.ngrok + ".ngrok.com/trelloCallback", 
+                                  callbackURL: config.url + "/trelloCallback", 
                                   idModel: config.trello.idModel
                           }
                         };
