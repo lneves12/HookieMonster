@@ -18,22 +18,26 @@ module.exports =  function () {
    		switch(message) {
    			//update actions
 		    case 'updateCard':
-		        detailMessage = 'Card was updated!';
-		        if(action.data.listAfter && action.data.listBefore)
+		        if(action.data.listAfter && action.data.listBefore){
 		        	detailMessage = 'Card \"' + action.data.card.name + '\" was moved from \"' + action.data.listBefore.name + '\" to \"' + action.data.listAfter.name + '\"';
-		        if(action.data.old)
+		        }
+		        else if(action.data.old){
 		        	detailMessage = 'Due date \"' + action.data.card.due + '\" was added to card \"' + action.data.card.name + '\"';
+		        }
+		        else {
+					detailMessage = 'Card was updated!';
+		        }
 		        break;
 		    case 'updateList':
-		        detailMessage = 'List \"' + action.data.list + '\" was moved';
+		        detailMessage = 'List \"' + action.data.list.name + '\" was moved';
 		        break;
 
 		    //create actions
 		    case 'createCard':
-		        detailMessage = 'New card \"' + action.data.card.name + '\" created on list \"' + action.data.list + '\"';
+		        detailMessage = 'New card \"' + action.data.card.name + '\" created on list \"' + action.data.list.name + '\"';
 		        break;
 		    case 'createList':
-		        detailMessage = 'New list \"' + action.data.list + '\" created';
+		        detailMessage = 'New list \"' + action.data.list.name + '\" created';
 		        break;
 
 		    //card actions
@@ -43,7 +47,7 @@ module.exports =  function () {
 
 		   	//delete actions
 		   	case 'deleteCard':
-		   		detailMessage = 'Card was deleted from list \"' + action.data.list + '\"';
+		   		detailMessage = 'Card was deleted from list \"' + action.data.list.name + '\"';
 		   		break;
 
 		   	//members actions
@@ -94,7 +98,7 @@ module.exports =  function () {
 		    	return 'Card \"' + cardName + '\" was commented!';
 		   	//delete actions
 		   	case 'deleteCard':
-		   		return 'Card \"' + cardName + '\" was deleted!';
+		   		return 'Card was deleted!';
 
 		   	//members actions
 		   	case 'addMemberToCard':
