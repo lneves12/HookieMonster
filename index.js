@@ -38,11 +38,11 @@ var io = server.plugins.hapio.io;
 io.on('connection', function(socket) {
     console.log('User connect');
 
-    socket.on('Submitted', function(userName){
-      hookieController.addClient(socket);
+    socket.on('Submitted', function(userName, mail){
+      hookieController.addClient(socket, userName, mail);
 
       socket.broadcast.emit('newUserConnected', userName, socket.id); //emit to all other senders
-      io.emit('nUsers', hookieController.clients.length);
+      io.emit('nUsers', Object.keys(hookieController.clients).length);
 
       var capability = new twilio.Capability(config.TwilioAccountSID, config.TwilioAuthToken);
       capability.allowClientIncoming(socket.id);
@@ -57,7 +57,7 @@ io.on('connection', function(socket) {
 
     socket.on('disconnect', function () {
       hookieController.removeClient(socket);
-      io.emit('nUsers', hookieController.clients.length);
+      io.emit('nUsers', Object.keys(hookieController.clients).length);
     });
 
 });

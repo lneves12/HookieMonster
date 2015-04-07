@@ -16,7 +16,7 @@ angular.module('hookieMonster')
     }
 
     $scope.call = function(clientId, clientName) {
-        var params = {"clientId": clientId , "clientName" : clientName};
+        var params = {"clientId": clientId};
         Twilio.Device.connect(params);
     }
 
