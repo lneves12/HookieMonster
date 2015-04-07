@@ -9,6 +9,8 @@ angular.module('hookieMonster')
     $scope.supportedHooks = ['twilio', 'dropbox', 'trello', 'hipchat'];
     $scope.activities = [];
     $scope.selectedHooks = {};
+    
+    $scope.user = {name: '' , mail: ''};
 
     $scope.supportedHooks.forEach(function(e) {
       socketIO.on(e, function(hook){
@@ -28,6 +30,14 @@ angular.module('hookieMonster')
         className: 'ngdialog ngdialog-theme-default dialog-' + activity.source,
         data: activity
       });
+    }
+
+    $scope.submit = function(){
+      $scope.userLoggedIn = true;
+      $scope.user.name = $scope.user.name || "HookieMonster"
+      $scope.user.mail = $scope.user.mail || "No gravatar mail"
+      var cryptMail = CryptoJS.MD5($scope.user.mail );
+      $scope.gravatarURL = "http://www.gravatar.com/avatar/" + cryptMail + "?size=400&d=http%3A%2F%2Fi.imgur.com%2F2WJrQ6l.jpg"
     }
 
 }]);

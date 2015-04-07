@@ -1,3 +1,5 @@
+/* app css stylesheet */
+
 /*Events Filters! */
 .filters {
   padding-right:0px;
@@ -28,13 +30,33 @@
   border-color: #cac3a8 #f9f0c2 #f9f0c2 #cac3a8;
   border-radius: .3em;
   text-align: center;
-  font-size: 23px;
+  font-size: .8em;
   color: #666;
   margin: 0 .1em;
   height: 29px;
   width: 29px;
   padding: 2px;
   line-height: 1.1em;
+}
+
+/* Start Page */
+.img-start-logo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+.panel.panel-login {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-heading.panel-heading-login {
+  background-color: rgba(248, 248, 248, 1);
 }
 
 .top {
@@ -58,6 +80,12 @@ body {
   background-color: #F8F8F8;
 }
 
+.user-image{
+  border: 2px transparent;
+  box-shadow: 0 1px 1px rgba(11, 172, 199, 0.5);
+  border-radius: 6px;
+}
+
 h1 {
   font-family: HookieFont;
   font-size: 45px;
@@ -79,6 +107,14 @@ h4 {
   margin: 0;
 }
 
+normal-text {
+  color:
+}
+
+.fa{
+  color:#0bacc7;
+  font-size: 25px;
+}
 
 .activity-main {
   margin-top: 5%;
@@ -90,11 +126,19 @@ h4 {
 }
 
 .activity-contact {
+  padding-left: 2%;
+  padding-right: 2%;
   height: 450px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
+.activity-detail {
+  background-color: rgba(248, 248, 248, 0.80);
+  height: 100%;
+  padding-top: 2%;
+  padding-left: 2%;
+}
 
 .twilio {
   background-color: #FFF3C7;
@@ -114,9 +158,10 @@ h4 {
 }
 
 .trello:hover,
-.trello:focus{
+.trello:checked{
   color: #555 !important;
 }
+
 
 ::-webkit-scrollbar {
   width: 14px;
@@ -160,8 +205,6 @@ h4 {
   opacity: 0;
   max-height:0px;
 }
-
-
 
 .uppercase {
     text-transform: uppercase;
