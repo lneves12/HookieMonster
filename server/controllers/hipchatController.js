@@ -11,7 +11,7 @@ module.exports = function() {
   HipchatController.incomingMessage = function(request, reply){
       reply().code(200)
 
-      mail = "";
+      var mail = "";
 
       for (var key in hookieController.clients) {
         if(hookieController.clients[key].name === request.payload.item.message.from.name){
